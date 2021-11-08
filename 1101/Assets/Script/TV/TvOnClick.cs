@@ -39,11 +39,12 @@ public class TvOnClick : MonoBehaviour
 
             if(true == (Physics.Raycast(ray.origin, ray.direction * 10, out hit)))
             {
-                Debug.Log("여기");
+                //Debug.Log("여기");
                 popup.SetActive(true);
                 // mainCam.enabled = true;
                 // subCam.enabled = false;
             }
         }
     }
+
 }
