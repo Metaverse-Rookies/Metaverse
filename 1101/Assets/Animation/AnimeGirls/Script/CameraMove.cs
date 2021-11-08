@@ -6,8 +6,8 @@ public class CameraMove : MonoBehaviour
 {
 
     public Transform objectTofollow;
-    public float followSpeed = 10f;
-    public float sensitivity = 100f;
+    public float followSpeed = 5f;
+    public float sensitivity = 50f;
     public float clampAngle = 70f;
 
     private float rotX;
@@ -30,8 +30,8 @@ public class CameraMove : MonoBehaviour
         dirNormalized = realCamera.localPosition.normalized;
         finaldist = realCamera.localPosition.magnitude;
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
     }
 
     // Update is called once per frame
