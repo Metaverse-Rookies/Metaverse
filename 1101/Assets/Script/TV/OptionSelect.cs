@@ -9,7 +9,7 @@ public class OptionSelect : MonoBehaviour
 
     // 각 버튼의 그룹
     public string type = "";
-    //public static string size = "";
+    public static string size = "";
     //public static string quailty = "";
     TvChange tvchange;
 
@@ -36,11 +36,11 @@ public class OptionSelect : MonoBehaviour
         {
             type = name;
             tvchange.change(type);
+        }else if (parent.Equals("Size"))
+        {
+            size = name;
+            tvchange.resize(size);
         }
-            
-
-        //else if (parent.Equals("Size"))
-        //size = name;
 
         //else if (parent.Equals("Quality"))
         //quailty = name;
