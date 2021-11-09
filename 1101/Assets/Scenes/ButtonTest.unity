@@ -1435,7 +1435,7 @@ GameObject:
   - component: {fileID: 1662119222}
   - component: {fileID: 1662119221}
   m_Layer: 5
-  m_Name: "\uB0A8\uC790"
+  m_Name: Male
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1726,7 +1726,7 @@ GameObject:
   - component: {fileID: 1939989514}
   - component: {fileID: 1939989513}
   m_Layer: 5
-  m_Name: "\uC5EC\uC790"
+  m_Name: Female
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
