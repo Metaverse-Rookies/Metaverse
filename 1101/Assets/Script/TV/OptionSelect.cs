@@ -11,16 +11,17 @@ public class OptionSelect : MonoBehaviour
     public static string type = "";
     public static string size = "";
     public static string quailty = "";
+    TvChange tvchange;
 
     void Start()
     {
-
+        tvchange = GameObject.Find("TVs").GetComponent<TvChange>();
     }
 
     void Update()
     {
         Cursor.visible = true;
-        Debug.Log(type + ", " + size + ", " + quailty + " ���� �Ϸ�");
+        Debug.Log(type + ", " + size + ", " + quailty + " 입니다");
     }
 
     public void ButtonClick()
@@ -31,11 +32,14 @@ public class OptionSelect : MonoBehaviour
         string parent = transform.parent.gameObject.name;
         
         if (parent.Equals("Type"))
+        {
             type = name;
-
-        else if (parent.Equals("Size"))
+            tvchange.change(type);
+        }else if (parent.Equals("Size"))
+        {
             size = name;
-
+            tvchange.resize(size);
+        }
         else if (parent.Equals("Quality"))
             quailty = name;
     }

@@ -5,9 +5,12 @@ using UnityEngine.UI;
 
 public class BtnOnClick : MonoBehaviour
 {
-    // Å¬¸¯ ÀÌº¥Æ®·Î »ý¼ºµÉ °´Ã¼
+    // Å¬ï¿½ï¿½ ï¿½Ìºï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼
     public GameObject popup;
     public Button btn;
+    public Camera testCam;
+
+    private RaycastHit hit;
 
     /*
     void Start()
@@ -19,7 +22,7 @@ public class BtnOnClick : MonoBehaviour
     public void fClick()
     {
         popup.SetActive(false);
-        Debug.Log("´ÝÈû");
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½");
     }
     */
 
@@ -28,7 +31,12 @@ public class BtnOnClick : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            popup.SetActive(false);
+            Ray ray = testCam.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit = new RaycastHit();
+            if (true == (Physics.Raycast(ray.origin, ray.direction * 10, out hit)))
+            {
+                popup.SetActive(true);
+            }
         }
     }
 
