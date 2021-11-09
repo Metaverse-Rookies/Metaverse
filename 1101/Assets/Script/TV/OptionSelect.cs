@@ -7,10 +7,14 @@ public class OptionSelect : MonoBehaviour
     public GameObject obj;
     public bool isClicked = false;
     
-    // �� ��ư�� �׷�
     public static string type = "";
     public static string size = "";
     public static string quailty = "";
+    TvChange tvchange;
+
+    public string type = "";
+    public static string size = "";
+    //public static string quailty = "";
     TvChange tvchange;
 
     void Start()
@@ -21,16 +25,14 @@ public class OptionSelect : MonoBehaviour
     void Update()
     {
         Cursor.visible = true;
-        Debug.Log(type + ", " + size + ", " + quailty + " 입니다");
+        Debug.Log(type + ", " + size + ", " + quailty + " ìëë¤");
+
     }
 
     public void ButtonClick()
     {
         isClicked = true;
         string name = this.gameObject.name;
-        
-        string parent = transform.parent.gameObject.name;
-        
         if (parent.Equals("Type"))
         {
             type = name;

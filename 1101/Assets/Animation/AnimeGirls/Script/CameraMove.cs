@@ -6,9 +6,9 @@ public class CameraMove : MonoBehaviour
 {
 
     public Transform objectTofollow;
-    public float followSpeed = 10f;
-    public float sensitivity = 100f;
-    public float clampAngle = 70f;
+    public float followSpeed = 2f;
+    public float sensitivity = 30f;
+    public float clampAngle = 40f;
 
     private float rotX;
     private float rotY;
@@ -30,20 +30,20 @@ public class CameraMove : MonoBehaviour
         dirNormalized = realCamera.localPosition.normalized;
         finaldist = realCamera.localPosition.magnitude;
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        rotX += -(Input.GetAxis("Mouse Y")) * sensitivity * Time.deltaTime;
-        rotY += Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
+        //rotX += -(Input.GetAxis("Mouse Y")) * sensitivity * Time.deltaTime;
+        //rotY += Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
 
-        rotX = Mathf.Clamp(rotX, -clampAngle, clampAngle);
+        //rotX = Mathf.Clamp(rotX, -clampAngle, clampAngle);
 
-        Quaternion rot = Quaternion.Euler(rotX, rotY, 0);
-        transform.rotation = rot;
+        //Quaternion rot = Quaternion.Euler(rotX, rotY, 0);
+       // transform.rotation = rot;
 
     }
 
