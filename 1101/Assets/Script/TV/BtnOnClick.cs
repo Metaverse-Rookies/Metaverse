@@ -9,9 +9,14 @@ public class BtnOnClick : MonoBehaviour
     public GameObject popup;
     public Camera testCam;
 
+<<<<<<< Updated upstream
     private RaycastHit hit;
    
     void ButtonClick()
+=======
+    // Update is called once per frame
+    void Update()
+>>>>>>> Stashed changes
     {
         if (Input.GetMouseButtonDown(0))
         {
