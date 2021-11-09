@@ -12,11 +12,6 @@ public class OptionSelect : MonoBehaviour
     public static string quailty = "";
     TvChange tvchange;
 
-    public string type = "";
-    public static string size = "";
-    //public static string quailty = "";
-    TvChange tvchange;
-
     void Start()
     {
         tvchange = GameObject.Find("TVs").GetComponent<TvChange>();
@@ -25,7 +20,7 @@ public class OptionSelect : MonoBehaviour
     void Update()
     {
         Cursor.visible = true;
-        Debug.Log(type + ", " + size + ", " + quailty + " ìëë¤");
+
 
     }
 
@@ -33,6 +28,8 @@ public class OptionSelect : MonoBehaviour
     {
         isClicked = true;
         string name = this.gameObject.name;
+        string parent = transform.parent.gameObject.name;
+
         if (parent.Equals("Type"))
         {
             type = name;
