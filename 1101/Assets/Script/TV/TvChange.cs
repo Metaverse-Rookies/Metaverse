@@ -13,7 +13,7 @@ public class TvChange : MonoBehaviour
     string nowSize = "Fourty";
     bool flag = false;
 
-    //Å©±âÁ¶Àı
+    //í¬ê¸°ì¡°ì ˆ
     private Vector3 sizeFourty, sizeFifty;
 
     void Start()
@@ -23,14 +23,14 @@ public class TvChange : MonoBehaviour
         stand = transform.GetChild(0).gameObject;
         hanging = transform.GetChild(1).gameObject;
 
-        //½ºÅÄµå ¾Èº¸ÀÌ°Ô
+        //ìŠ¤íƒ ë“œ ì•ˆë³´ì´ê²Œ
         stand.SetActive(false);
 
-        //ÀÎÄ¡º° Å©±âÁ¶Àı
+        //ì¸ì¹˜ë³„ í¬ê¸°ì¡°ì ˆ
         sizeFourty = new Vector3(4.0f, 4.0f, 4.0f);
         sizeFifty = new Vector3(5.0f, 5.0f, 5.0f);
 
-        //±âº» Å©±â
+        //ê¸°ë³¸ í¬ê¸°
         hanging.transform.localScale = sizeFourty;
     }
 
@@ -83,12 +83,12 @@ public class TvChange : MonoBehaviour
         {
             if (nowType == "Stand")
             {
-                //½ºÅÄµå 40ÀÎÄ¡·Î Á¶Àı
+                //ìŠ¤íƒ ë“œ 40ì¸ì¹˜ë¡œ ì¡°ì ˆ
                 stand.transform.localScale = sizeFourty;
             }
             else
             {
-                //º®°ÉÀÌ 40ÀÎÄ¡·Î Á¶Àı
+                //ë²½ê±¸ì´ 40ì¸ì¹˜ë¡œ ì¡°ì ˆ
                 hanging.transform.localScale = sizeFourty;
             }
             nowSize = "Fourty";
@@ -97,12 +97,12 @@ public class TvChange : MonoBehaviour
         {
             if (nowType == "Stand")
             {
-                //½ºÅÄµå 50ÀÎÄ¡·Î Á¶Àı
+                //ìŠ¤íƒ ë“œ 50ì¸ì¹˜ë¡œ ì¡°ì ˆ
                 stand.transform.localScale = sizeFifty;
             }
             else
             {
-                //º®°ÉÀÌ 50ÀÎÄ¡·Î Á¶Àı
+                //ë²½ê±¸ì´ 50ì¸ì¹˜ë¡œ ì¡°ì ˆ
                 hanging.transform.localScale = sizeFifty;
             }
             nowSize = "Fifty";

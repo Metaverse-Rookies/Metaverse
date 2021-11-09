@@ -6,8 +6,12 @@ public class OptionSelect : MonoBehaviour
 {
     public GameObject obj;
     public bool isClicked = false;
+    
+    public static string type = "";
+    public static string size = "";
+    public static string quailty = "";
+    TvChange tvchange;
 
-    // °¢ ¹öÆ°ÀÇ ±×·ì
     public string type = "";
     public static string size = "";
     //public static string quailty = "";
@@ -21,8 +25,7 @@ public class OptionSelect : MonoBehaviour
     void Update()
     {
         Cursor.visible = true;
-
-        //Debug.Log(type + ", " + size + ", " + quailty + " ¼±ÅÃ ¿Ï·á");
+        Debug.Log(type + ", " + size + ", " + quailty + " Ã¬ÂžÂ…Ã«Â‹ÂˆÃ«Â‹Â¤");
 
     }
 
@@ -30,8 +33,6 @@ public class OptionSelect : MonoBehaviour
     {
         isClicked = true;
         string name = this.gameObject.name;
-        string parent = transform.parent.gameObject.name;
-
         if (parent.Equals("Type"))
         {
             type = name;
@@ -41,10 +42,7 @@ public class OptionSelect : MonoBehaviour
             size = name;
             tvchange.resize(size);
         }
-
-        //else if (parent.Equals("Quality"))
-        //quailty = name;
-
-
+        else if (parent.Equals("Quality"))
+            quailty = name;
     }
 }
