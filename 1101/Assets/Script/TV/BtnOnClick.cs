@@ -5,28 +5,21 @@ using UnityEngine.UI;
 
 public class BtnOnClick : MonoBehaviour
 {
-    // Ŭ�� �̺�Ʈ�� ������ ��ü
     public GameObject popup;
     public Button btn;
-    public Camera testCam;
+    
+    public bool isClicked = false;
 
-    private RaycastHit hit;
+    public void ButtonClick(){
+        isClicked = true;
+
+        if(isClicked){
+            popup.SetActive(false);
+            Debug.Log("Close");
+        }
+    }
 
     /*
-    void Start()
-    {
-        btn = this.transform.GetComponent<Button>();
-        btn.onClick.AddListener(fClick);
-    }
-
-    public void fClick()
-    {
-        popup.SetActive(false);
-        Debug.Log("����");
-    }
-    */
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -39,5 +32,5 @@ public class BtnOnClick : MonoBehaviour
             }
         }
     }
-
+    */
 }
