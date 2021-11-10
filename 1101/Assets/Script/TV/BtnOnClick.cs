@@ -10,11 +10,12 @@ public class BtnOnClick : MonoBehaviour
     
     public bool isClicked = false;
 
-    void ButtonClick(){
+    public void ButtonClick(){
         isClicked = true;
 
         if(isClicked){
             popup.SetActive(false);
+            Debug.Log("Close");
         }
     }
 
