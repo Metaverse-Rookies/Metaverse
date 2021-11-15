@@ -3,19 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ChangeScene : MonoBehaviour
 {
     public string nowButton;
     public string genderButton;
-
+    public string name;
+    public InputField nameInputField;
     // Start is called before the first frame update
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
-
     }
 
+    private void Start()
+    {
+        nameInputField.onEndEdit.AddListener(ValueChanged);
+    }
     public void ButtonClick()
     {
         // 현재 게임오브젝트의 이름을 저장한다
@@ -36,4 +41,9 @@ public class ChangeScene : MonoBehaviour
         }
     }
 
+    public void ValueChanged(string text)
+	{
+        name = text;
+		Debug.Log (name);
+	}
 }
