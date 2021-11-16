@@ -20,7 +20,6 @@ namespace FancyScrollView.Example03
         protected override void Initialize()
         {
             base.Initialize();
-
             Context.OnCellClicked = SelectCell;
 
             scroller.OnValueChanged(UpdatePosition);
@@ -34,6 +33,7 @@ namespace FancyScrollView.Example03
                 return;
             }
 
+            GameObject NewUi = new GameObject("UI");
             Context.SelectedIndex = index; //해당 인덱스가 선택되듯 색이 변함
             Refresh();
         }

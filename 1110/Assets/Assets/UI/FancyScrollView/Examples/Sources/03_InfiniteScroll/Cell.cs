@@ -33,7 +33,7 @@ namespace FancyScrollView.Example03
             message.text = itemData.Message;
             messageLarge.text = "75inch\tUHD\t삼성전자\t스탠드";//Index.ToString();
             messageLarge.GetComponent<Text>().fontSize = 50;
-            
+
             var selected = Context.SelectedIndex == Index;
             imageLarge.color = image.color = selected
                 ? new Color32(0, 255, 255, 100)
