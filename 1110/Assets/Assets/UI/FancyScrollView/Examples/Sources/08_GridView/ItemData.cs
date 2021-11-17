@@ -4,15 +4,12 @@
  * Licensed under MIT (https://github.com/setchi/FancyScrollView/blob/master/LICENSE)
  */
 
-namespace FancyScrollView.Example03
+namespace FancyScrollView.Example08
 {
     class ItemData
     {
-        public string Message { get; }
+        public int Index { get; }
 
-        public ItemData(string message)
-        {
-            Message = message;
-        }
+        public ItemData(int index) => Index = index;
     }
 }

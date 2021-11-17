@@ -4,15 +4,12 @@
  * Licensed under MIT (https://github.com/setchi/FancyScrollView/blob/master/LICENSE)
  */
 
-namespace FancyScrollView.Example03
+namespace FancyScrollView.Example07
 {
-    class ItemData
+    enum Alignment
     {
-        public string Message { get; }
-
-        public ItemData(string message)
-        {
-            Message = message;
-        }
+        Upper,
+        Middle,
+        Lower,
     }
 }

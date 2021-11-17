@@ -4,15 +4,13 @@
  * Licensed under MIT (https://github.com/setchi/FancyScrollView/blob/master/LICENSE)
  */
 
-namespace FancyScrollView.Example03
-{
-    class ItemData
-    {
-        public string Message { get; }
+using System;
 
-        public ItemData(string message)
-        {
-            Message = message;
-        }
+namespace FancyScrollView.Example07
+{
+    class Context : FancyScrollRectContext
+    {
+        public int SelectedIndex = -1;
+        public Action<int> OnCellClicked;
     }
 }
