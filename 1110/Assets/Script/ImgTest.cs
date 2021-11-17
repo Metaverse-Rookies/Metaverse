@@ -19,6 +19,12 @@ public class ImgTest : MonoBehaviour
 
     private void CreateImg()
     {
-        Instantiate(tv);
+        float tveSize = tv.GetComponent<SpriteRenderer>().sprite.bounds.size.x;
+        for(int i = 0; i < 5; i++)
+            for(int j= 0;j<5;j++)
+            {
+                GameObject newTv = Instantiate(tv);
+                newTv.transform.position = new Vector3(tveSize * i, tveSize * j, 0);
+            }
     }
 }
