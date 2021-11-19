@@ -17,6 +17,7 @@ namespace FancyScrollView.Example03
         [SerializeField] Image image = default;
         [SerializeField] Image imageLarge = default;
         [SerializeField] Button button = default;
+        [SerializeField] GameObject tv;//
 
         static class AnimatorHash
         {
@@ -30,9 +31,11 @@ namespace FancyScrollView.Example03
 
         public override void UpdateContent(ItemData itemData)
         {
+            tv = (Resources.Load("Img/samsung",typeof(GameObject))) as GameObject;
+            GameObject newTv = Instantiate(tv);//
             message.text = itemData.Message;
             messageLarge.text = "75inch\tUHD\t삼성전자\t스탠드";//Index.ToString();
-            messageLarge.GetComponent<Text>().fontSize = 50;
+            messageLarge.GetComponent<Text>().fontSize = 50;//
             
             var selected = Context.SelectedIndex == Index;
             imageLarge.color = image.color = selected

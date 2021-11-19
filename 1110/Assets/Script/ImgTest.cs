@@ -5,16 +5,12 @@ using UnityEngine;
 public class ImgTest : MonoBehaviour
 {
     [SerializeField] public GameObject tv;
+    public TextAsset textAsset;
     // Start is called before the first frame update
     void Start()
     {
         CreateImg();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        textAsset = Resources.Load<TextAsset>("text");
     }
 
     private void CreateImg()
@@ -23,8 +19,10 @@ public class ImgTest : MonoBehaviour
         for(int i = 0; i < 5; i++)
             for(int j= 0;j<5;j++)
             {
-                GameObject newTv = Instantiate(tv);
-                newTv.transform.position = new Vector3(tveSize * i, tveSize * j, 0);
+                //tv = Instantiate(Resources.Load("Img/samsung.jpg",typeof(GameObject))) as GameObject;
+                tv = Resources.Load<GameObject>("Img/samsung");Instantiate(tv);
+                /*GameObject newTv = Instantiate(tv);
+                newTv.transform.position = new Vector3(tveSize * i, tveSize * j, 0);*/
             }
     }
 }

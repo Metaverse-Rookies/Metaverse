@@ -14,7 +14,6 @@ namespace FancyScrollView.Example03
     {
         [SerializeField] Scroller scroller = default;
         [SerializeField] GameObject cellPrefab = default;
-
         protected override GameObject CellPrefab => cellPrefab;
 
         protected override void Initialize()
