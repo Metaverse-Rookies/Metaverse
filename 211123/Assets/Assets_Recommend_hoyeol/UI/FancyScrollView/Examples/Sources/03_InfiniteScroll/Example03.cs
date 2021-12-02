@@ -11,6 +11,19 @@ namespace FancyScrollView.Example03
 {
     class Example03 : MonoBehaviour
     {
+        /*readonly ItemData[] itemData = 
+        {
+            new ItemData(
+                "75inch\tUHD\t삼성전자\t스탠드",
+                (Resources.Load("Img/samsung",typeof(GameObject))) as GameObject,
+                "https://m.etlandmall.co.kr/mobile/product/product.do?prdMstCd=S3308023"
+            ),
+            new ItemData(
+                "75inch\tUHD\t삼성전자\t스탠드",
+                (Resources.Load("Img/lg",typeof(GameObject))) as GameObject,
+                "https://m.etlandmall.co.kr/mobile/product/product.do?prdMstCd=S3308023"
+            )
+        };*/
         [SerializeField] ScrollView scrollView = default;
 
         void Start()
@@ -19,6 +32,7 @@ namespace FancyScrollView.Example03
                 .Select(i => new ItemData($"제품 {i}"))
                 .ToArray();
 
+            //scrollView.UpdateData(itemData);
             scrollView.UpdateData(items);
             scrollView.SelectCell(0);
         }

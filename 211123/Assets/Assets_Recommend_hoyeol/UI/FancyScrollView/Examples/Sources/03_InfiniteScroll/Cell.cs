@@ -28,11 +28,14 @@ namespace FancyScrollView.Example03
         {
             button.onClick.AddListener(() => Context.OnCellClicked?.Invoke(Index));
         }
-
+ 
         public override void UpdateContent(ItemData itemData)
         {
             tv = (Resources.Load("Img/samsung",typeof(GameObject))) as GameObject;
+            tv = (Resources.Load("Img/lg",typeof(GameObject))) as GameObject;
             GameObject newTv = Instantiate(tv);//
+            newTv.transform.position = gameObject.transform.position;
+
             message.text = itemData.Message;
             messageLarge.text = "75inch\tUHD\t삼성전자\t스탠드";//Index.ToString();
             messageLarge.GetComponent<Text>().fontSize = 50;//

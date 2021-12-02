@@ -13,54 +13,29 @@ namespace FancyScrollView.Example09
         readonly ItemData[] itemData =
         {
             new ItemData(
-                "FancyScrollView",
-                "A scrollview component that can implement highly flexible animation.",
-                "https://setchi.jp/FancyScrollView/09_LoadTexture/Images/00.png"
+                "상품번호 S3308023",
+                "LG전자 OLED77A1MNA 194cm(77인치) OLED TV\t5,190,000원",
+                "https://m.etlandmall.co.kr/nas/cdn/attach/product/2021/06/14/S3308023/S3308023_0_500.jpg"
             ),
             new ItemData(
-                "01_Basic",
-                "Example of simplest implementation.",
-                "https://setchi.jp/FancyScrollView/09_LoadTexture/Images/01.png"
+                "상품번호 S2974243",
+                "[삼성전자/KQ75QNA90AFXKR] 189cm(75인치) Neo QLED TV\t6,899,000원",
+                "https://m.etlandmall.co.kr/nas/cdn/attach/product/2021/03/22/S2974243/S2974243_0_500.png"
             ),
             new ItemData(
-                "02_FocusOn",
-                "Example of focusing on the left and right cells with buttons.",
-                "https://setchi.jp/FancyScrollView/09_LoadTexture/Images/02.png"
+                "상품번호 S2987021",
+                "[삼성전자/KQ85QA70AFXKR] 214cm(85인치) QLED TV\t7,300,000원",
+                "https://m.etlandmall.co.kr/nas/cdn/attach/product/2021/03/25/S2987021/S2987021_0_500.jpg"
             ),
             new ItemData(
-                "03_InfiniteScroll",
-                "Example of infinite scroll implementation.",
-                "https://setchi.jp/FancyScrollView/09_LoadTexture/Images/03.png"
+                "상품번호 S3121113",
+                "LG전자/OLED48C1KNB 120cm(48인치) 4세대 알파9\t1,540,000원",
+                "https://m.etlandmall.co.kr/nas/cdn/attach/product/2021/04/28/S3121113/S3121113_0_500.jpg"
             ),
             new ItemData(
-                "04_Metaball",
-                "Example of metaball implementation using shaders.",
-                "https://setchi.jp/FancyScrollView/09_LoadTexture/Images/04.png"
-            ),
-            new ItemData(
-                "05_Voronoi",
-                "Example of voronoi implementation using shaders.",
-                "https://setchi.jp/FancyScrollView/09_LoadTexture/Images/05.png"
-            ),
-            new ItemData(
-                "06_LoopTabBar",
-                "Example of switching screens with tabs.",
-                "https://setchi.jp/FancyScrollView/09_LoadTexture/Images/06.png"
-            ),
-            new ItemData(
-                "07_ScrollRect",
-                "Example of ScrollRect style implementation with scroll bar.",
-                "https://setchi.jp/FancyScrollView/09_LoadTexture/Images/07.png"
-            ),
-            new ItemData(
-                "08_GridView",
-                "Example of grid layout implementation.",
-                "https://setchi.jp/FancyScrollView/09_LoadTexture/Images/08.png"
-            ),
-            new ItemData(
-                "09_LoadTexture",
-                "Example of load texture implementation.",
-                "https://setchi.jp/FancyScrollView/09_LoadTexture/Images/09.png"
+                "상품번호 S0167913",
+                "[아남/FDL430CT] LED TV / 109cm(43인치) / FHD (스탠드형) 서울/경기한정배송\t449,000",
+                "https://m.etlandmall.co.kr/nas/cdn/attach/product/2020/10/14/S0167913/S0167913_0_500.jpg"
             )
         };
 
