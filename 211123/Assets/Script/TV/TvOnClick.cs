@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TvOnClick : MonoBehaviour
 {
-    // Å¬¸¯ ÀÌº¥Æ®·Î »ý¼ºµÉ °´Ã¼
+    // Å¬ï¿½ï¿½ ï¿½Ìºï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼
     public GameObject popup;
     public Camera testCam;
 
@@ -17,6 +17,13 @@ public class TvOnClick : MonoBehaviour
     }
 
     // Update is called once per frame
+    
+    /*public void TvButtonClick()
+    {
+        popup.SetActive(true);
+        Debug.Log("TV popup window Open");
+    }*/
+
     void Update()
     {
         
@@ -27,7 +34,7 @@ public class TvOnClick : MonoBehaviour
 
             if(true == (Physics.Raycast(ray.origin, ray.direction * 10, out hit)))
             {
-                //Debug.Log("¿©±â");
+                //Debug.Log("ï¿½ï¿½ï¿½ï¿½");
                 popup.SetActive(true);
             }
         }
