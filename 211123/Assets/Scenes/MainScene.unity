@@ -7377,7 +7377,6 @@ MonoBehaviour:
   popup: {fileID: 1742704797}
   recommendPopup: {fileID: 1778935161}
   btn: {fileID: 1497591453}
-  isClicked: 0
 --- !u!114 &1497591453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8941,7 +8940,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1778935162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10968,7 +10967,6 @@ MonoBehaviour:
   popup: {fileID: 1742704797}
   recommendPopup: {fileID: 1778935161}
   btn: {fileID: 1981785771}
-  isClicked: 0
 --- !u!114 &1981785771
 MonoBehaviour:
   m_ObjectHideFlags: 0

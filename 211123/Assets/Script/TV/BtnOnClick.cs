@@ -17,7 +17,7 @@ public class BtnOnClick : MonoBehaviour
 
         if(isClicked){
             popup.SetActive(false);
-            Debug.Log("Close");
+            Debug.Log("Tv Popup window Close");
         }
     }
 
@@ -29,7 +29,19 @@ public class BtnOnClick : MonoBehaviour
         if (isClicked)
         {
             recommendPopup.SetActive(true);
-            Debug.Log("Open");
+            Debug.Log("TV Recommend window Open");
+        }
+    }
+
+    public void RecommendOutButtton()
+    {
+        isClicked  = true;
+        Debug.Log(isClicked);
+
+        if (isClicked)
+        {
+            recommendPopup.SetActive(false);
+            Debug.Log("TV Recommend window Close");
         }
     }
 
