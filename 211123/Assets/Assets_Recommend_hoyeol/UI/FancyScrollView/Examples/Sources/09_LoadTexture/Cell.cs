@@ -99,8 +99,6 @@ namespace FancyScrollView.Example09
                 btn.onClick.AddListener(Lg48URL);
             else if (title.text == "상품번호 S3308023")
                 btn.onClick.AddListener(Lg77URL);
-            else
-                btn.onClick.AddListener(AnamURL);
         }
         public void AnamURL()
         {

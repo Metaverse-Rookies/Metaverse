@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class BtnOnClick : MonoBehaviour
 {
     public GameObject popup;
+    public GameObject recommendPopup;
     public Button btn;
     
     public bool isClicked = false;
@@ -17,6 +18,18 @@ public class BtnOnClick : MonoBehaviour
         if(isClicked){
             popup.SetActive(false);
             Debug.Log("Close");
+        }
+    }
+
+    public void RecommendButtonClick()
+    {
+        isClicked = true;
+        Debug.Log(isClicked);
+
+        if (isClicked)
+        {
+            recommendPopup.SetActive(true);
+            Debug.Log("Open");
         }
     }
 

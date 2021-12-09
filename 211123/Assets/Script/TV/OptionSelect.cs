@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OptionSelect : MonoBehaviour
 {
-    public GameObject obj;
+    //public GameObject obj;
     public bool isClicked = false;
     
     public static string type = "";
