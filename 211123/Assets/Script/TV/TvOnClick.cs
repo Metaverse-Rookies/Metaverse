@@ -9,6 +9,7 @@ public class TvOnClick : MonoBehaviour
     public Camera testCam;
 
     private RaycastHit hit;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -17,8 +18,8 @@ public class TvOnClick : MonoBehaviour
     }
 
     // Update is called once per frame
-    
-    /*public void TvButtonClick()
+    /*
+    public void TvButtonClick()
     {
         popup.SetActive(true);
         Debug.Log("TV popup window Open");

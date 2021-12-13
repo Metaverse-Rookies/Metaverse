@@ -34,7 +34,7 @@ public class ChangeScene : MonoBehaviour
     public void SceneChange()
     {
         nowButton = EventSystem.current.currentSelectedGameObject.name;
-        if (nowButton == "CreateAvatar")
+        if (nowButton == "Login")
         {
             Debug.Log("아바타생성");
             SceneManager.LoadScene("MainScene");

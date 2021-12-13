@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/20_house.unity
     guid: 85d8e05b3bbeefd4eb7c514fc56d9cbc
   - enabled: 1
-    path: Assets/Scenes/ButtonTest.unity
+    path: Assets/Scenes/LoginScene.unity
     guid: ce852860cdfb92a459553238b5322d1d
   - enabled: 1
     path: Assets/Scenes/MainScene.unity
