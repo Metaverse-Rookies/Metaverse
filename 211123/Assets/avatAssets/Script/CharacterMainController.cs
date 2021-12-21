@@ -184,7 +184,7 @@ public class CharacterMainController : MonoBehaviour
         _deltaTime = Time.deltaTime;
 
         // 확인, 카메라, 키 입력.
-        ShowCursorToggle();
+        //ShowCursorToggle();
         CameraViewToggle();
         SetValuesByKeyInput();
 
@@ -192,7 +192,7 @@ public class CharacterMainController : MonoBehaviour
         Rotate();
         Move();
         Jump();
-        //Seatbutton();
+       
 
         // 업데이트.       
         CheckDistanceFromGround();
