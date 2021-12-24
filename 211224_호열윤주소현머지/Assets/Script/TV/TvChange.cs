@@ -6,9 +6,9 @@ public class TvChange : MonoBehaviour
 {
     OptionSelect standSelect;
     OptionSelect hangingSelect;
+    // GameObject stand;
+    GameObject tv;
     GameObject stand;
-    GameObject hanging;
-    
 
     public GameObject ui;
     public string nowType = "Hanging";
@@ -18,66 +18,71 @@ public class TvChange : MonoBehaviour
     //크기조절
     private Vector3 sizeFourty, sizeFifty;
 
+    private Vector3 positionWall, positionStand;
+
     void Start()
     {
         standSelect = GameObject.Find("Stand").GetComponent<OptionSelect>();
         hangingSelect = GameObject.Find("Hanging").GetComponent<OptionSelect>();
-        stand = transform.GetChild(0).gameObject;
-        hanging = transform.GetChild(1).gameObject;
+        tv = transform.GetChild(0).gameObject;
+        stand = transform.GetChild(1).gameObject;
+        // hanging = transform.GetChild(1).gameObject;
         
 
         //스탠드 안보이게
         stand.SetActive(false);
 
         //인치별 크기조절
-        sizeFourty = new Vector3(4.0f, 4.0f, 4.0f);
-        sizeFifty = new Vector3(5.0f, 5.0f, 5.0f);
+        sizeFourty = new Vector3(5.9f, 5.5f, 2.0f);
+        sizeFifty = new Vector3(7.3f, 6.7f, 2.0f);
+
+        positionWall = new Vector3(22.0f, -3.0f, 14.0f);
+        positionStand = new Vector3(22.0f, -5.0f, 13.0f);
 
         //기본 크기
-        hanging.transform.localScale = sizeFourty;
+        tv.transform.localScale = sizeFourty;
 
-        //
+        //기본 위치
+        tv.transform.localPosition = positionWall;
+        
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (flag)
-        {
-            ui.SetActive(true);
-        }
+
     }
 
     public void changeTV(string name)
     {
-        Debug.Log(name+"누름2");
         if (name=="Stand")
         {
+            // Debug.Log("stand 활성화");
             stand.SetActive(true);
-            hanging.SetActive(false);
-            nowType = "Stand";
+            tv.transform.localPosition = positionStand;
             if (nowSize == "40")
             {
-                stand.transform.localScale = sizeFourty;
+                tv.transform.localScale = sizeFourty;
             }else if (nowSize == "50")
             {
-                stand.transform.localScale = sizeFifty;
+                tv.transform.localScale = sizeFifty;
             }
+            nowType = "Stand";
+
         }
         else if (name == "Hanging")
         {
-            hanging.SetActive(true);
+            // Debug.Log("stand 비활성화");
             stand.SetActive(false);
-            //ui.SetActive(true);
-            nowType = "Hanging";
+            tv.transform.localPosition = positionWall;
             if (nowSize == "40")
             {
-                hanging.transform.localScale = sizeFourty;
+                tv.transform.localScale = sizeFourty;
             }
             else if (nowSize == "50")
             {
-                hanging.transform.localScale = sizeFifty;
+                tv.transform.localScale = sizeFifty;
             }
+            nowType = "Hanging";
         }
         flag = true;
     }
@@ -86,29 +91,31 @@ public class TvChange : MonoBehaviour
     {
         if (size == "40")
         {
+            tv.transform.localScale = sizeFourty;
             if (nowType == "Stand")
             {
                 //스탠드 40인치로 조절
-                stand.transform.localScale = sizeFourty;
+                tv.transform.localPosition = positionStand;
             }
             else
             {
                 //벽걸이 40인치로 조절
-                hanging.transform.localScale = sizeFourty;
+                tv.transform.localPosition = positionWall;
             }
             nowSize = "40";
         }
         else if(size == "50")
         {
+            tv.transform.localScale = sizeFifty;
             if (nowType == "Stand")
             {
                 //스탠드 50인치로 조절
-                stand.transform.localScale = sizeFifty;
+                tv.transform.localPosition = positionStand;
             }
             else
             {
                 //벽걸이 50인치로 조절
-                hanging.transform.localScale = sizeFifty;
+                tv.transform.localPosition = positionWall;
             }
             nowSize = "50";
         }

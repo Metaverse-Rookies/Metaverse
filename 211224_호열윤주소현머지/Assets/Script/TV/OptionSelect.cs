@@ -25,7 +25,7 @@ public class OptionSelect : MonoBehaviour
     void Update()
     {
         Cursor.visible = true;
-        Debug.Log(type+","+size+","+channel+","+quality+"\n");
+        // Debug.Log(type+","+size+","+channel+","+quality+"\n");
     }
 
     public void ButtonClick()
@@ -36,9 +36,11 @@ public class OptionSelect : MonoBehaviour
 
         if (parent.Equals("Type"))
         {
-            Debug.Log(name+"누름1");
+            // Debug.Log(name+"누름1");
             type = name;
             tvchange.changeTV(type);
+            channelChange.changeChannel(channel);
+
         }else if (parent.Equals("Size"))
         {
             size = name;

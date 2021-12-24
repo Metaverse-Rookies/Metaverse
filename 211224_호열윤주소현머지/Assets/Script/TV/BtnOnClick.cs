@@ -6,47 +6,20 @@ using UnityEngine.UI;
 public class BtnOnClick : MonoBehaviour
 {
     public GameObject popup;
-    public GameObject recommendPopup;
     public Button btn;
     
     public bool isClicked = false;
-    
+
     public void ButtonClick(){
         isClicked = true;
-        Debug.Log(isClicked);
+        //Debug.Log(isClicked);
 
         if(isClicked){
             popup.SetActive(false);
-            Debug.Log("Tv Popup window Close");
-            isClicked = false;
+            //Debug.Log("Close");
         }
     }
 
-    public void RecommendButtonClick()
-    {
-        isClicked = true;
-        Debug.Log(isClicked);
-
-        if (isClicked)
-        {
-            recommendPopup.SetActive(true);
-            Debug.Log("TV Recommend window Open");
-            isClicked = false;
-        }
-    }
-
-    public void RecommendOutButtton()
-    {
-        isClicked  = true;
-        Debug.Log(isClicked);
-
-        if (isClicked)
-        {
-            recommendPopup.SetActive(false);
-            Debug.Log("TV Recommend window Close");
-            isClicked = false;
-        }
-    }
     /*
     void Update()
     {

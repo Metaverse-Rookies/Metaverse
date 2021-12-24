@@ -10,12 +10,15 @@ public class ChannelChange : MonoBehaviour
 
     public GameObject ui;
 
-    bool flag = false;
+    // bool flag = false;
 
     //크기조절
     private Vector3 sizeFourty, sizeFifty;
+    private Vector3 positionWall, positionStand;
     public string nowChannel = "ANI";
     public string nowSize = "40";
+    public string nowType = "";
+
     TvChange tvchange;
 
     // Start is called before the first frame update
@@ -32,40 +35,60 @@ public class ChannelChange : MonoBehaviour
         animation.SetActive(false);
 
         //인치별 크기조절
-        sizeFourty = new Vector3(8.0f, 8.0f, 8.0f);
-        sizeFifty = new Vector3(10.0f, 10.0f, 10.0f);
+        sizeFourty = new Vector3(8.6f, 4.8f, 1.0f);
+        sizeFifty = new Vector3(10.5f, 5.9f, 1.0f);
+
+        positionWall = new Vector3(24.27f, 4.86f, 10.59f);
+        positionStand = new Vector3(24.27f, 2.87f, 9.6f);
 
         //기본 크기
         drama.transform.localScale = sizeFourty;
+
+        //기본 위치
+        drama.transform.localPosition = positionWall;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (flag)
-        {
-            ui.SetActive(true);
-        }
+        
     }
     public void changeChannel(string name)
     {
+        nowType = tvchange.nowType;
+        nowSize = tvchange.nowSize;
+
+        // Debug.Log("현재"+nowType);
         for(int i=0;i<3;i++){
             GameObject temp = transform.GetChild(i).gameObject;
             if(name==temp.name){
                 temp.SetActive(true);
                 nowChannel = temp.name;
+
+                //사이즈조절
                 if (nowSize == "40")
                 {
                     temp.transform.localScale = sizeFourty;
+
                 }else if (nowSize == "50")
                 {
                     temp.transform.localScale = sizeFifty;
+                }
+
+                //위치조절
+                if (nowType == "Stand")
+                {
+                    temp.transform.localPosition = positionStand;
+                }
+                else
+                {
+                    temp.transform.localPosition = positionWall;
                 }
             }else{
                 temp.SetActive(false);
             }
         }
-        flag = true;
+        // flag = true;
     }
 
     public void resize(string size)
