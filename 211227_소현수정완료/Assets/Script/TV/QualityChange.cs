@@ -11,6 +11,8 @@ public class QualityChange : MonoBehaviour
     TvChange tvchange;
     public string nowSize = "";
     public string nowType = "";
+    public string nowQuality = "FHD";
+
     private Vector3 sizeFourty, sizeFifty;
 
     private Vector3 positionWall, positionStand;
@@ -23,20 +25,20 @@ public class QualityChange : MonoBehaviour
         qhd = transform.GetChild(1).gameObject;
         uhd = transform.GetChild(2).gameObject;
 
-        sizeFourty = new Vector3(8.6f, 4.8f, 0.01f);
-        sizeFifty = new Vector3(10.5f, 5.9f, 0.01f);
+        sizeFourty = new Vector3(10.08844f, 5.664787f, 0.01f);
+        sizeFifty = new Vector3(12.6147f, 7.0033f, 0.01f);
 
         // positionWall = new Vector3(-33.15f, 5.47f, 102f);
         // positionStand = new Vector3(24.27f, 2.87f, 9.6f);
-        positionWall = new Vector3(0.54f, 2.2f, 0.94f);
-        positionStand = new Vector3(0.54f, -0.16f, 0.94f);
+        positionWall = new Vector3(0.41f, 2.26f, 1.0f);
+        positionStand = new Vector3(0.54f, -0.16f, 0.0f);
 
-        fhd.SetActive(false);
+        fhd.SetActive(true);
+        qhd.SetActive(false);
         uhd.SetActive(false);
         
-        qhd.transform.localScale = sizeFourty;
-
-        // qhd.transform.position = positionWall;
+        fhd.transform.localScale = sizeFourty;
+        fhd.transform.localPosition = positionWall;
     }
 
     // Update is called once per frame
@@ -54,8 +56,9 @@ public class QualityChange : MonoBehaviour
             GameObject temp = transform.GetChild(i).gameObject;
            
             if(name==temp.name){
-                //Debug.Log(temp.name);
+                Debug.Log(temp.name+"으로");
                 temp.SetActive(true);
+                nowQuality = name;
             }else{
                 temp.SetActive(false);
             }
@@ -85,13 +88,20 @@ public class QualityChange : MonoBehaviour
 
     public void resize(string size)
     {
-        if (size == "40")
-        {
-            //blur.transform.localScale=sizeFourty;
+        for(int i=0;i<3;i++){
+            GameObject blur = transform.GetChild(i).gameObject;
+            if(nowQuality==blur.name){
+                if (size == "40")
+                {
+                    blur.transform.localScale=sizeFourty;
+                }
+                else if(size == "50")
+                {
+                    blur.transform.localScale=sizeFifty;
+                }
+            }
         }
-        else if(size == "50")
-        {
-            //blur.transform.localScale=sizeFifty;
-        }
+
+
     }
 }

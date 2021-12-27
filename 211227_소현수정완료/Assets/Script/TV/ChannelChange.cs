@@ -15,7 +15,7 @@ public class ChannelChange : MonoBehaviour
     //크기조절
     private Vector3 sizeFourty, sizeFifty;
     private Vector3 positionWall, positionStand;
-    public string nowChannel = "ANI";
+    public string nowChannel = "";
     public string nowSize = "40";
     public string nowType = "";
 
@@ -30,9 +30,10 @@ public class ChannelChange : MonoBehaviour
         animation = transform.GetChild(1).gameObject;
         drama = transform.GetChild(2).gameObject;
 
-        //채널 하나만 보이게
+        //처음엔 TV 꺼져있게
         document.SetActive(false);
         animation.SetActive(false);
+        drama.SetActive(false);
 
         //인치별 크기조절
         sizeFourty = new Vector3(8.6f, 4.8f, 1.0f);

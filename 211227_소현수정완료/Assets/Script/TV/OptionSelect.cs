@@ -36,16 +36,18 @@ public class OptionSelect : MonoBehaviour
 
         if (parent.Equals("Type"))
         {
-            // Debug.Log(name+"누름1");
             type = name;
+            quality = qualityChange.nowQuality;
             tvchange.changeTV(type);
             channelChange.changeChannel(channel);
+            qualityChange.changeQuality(quality);
 
         }else if (parent.Equals("Size"))
         {
             size = name;
             tvchange.resize(size);
             channelChange.resize(size);
+            qualityChange.resize(size);
         }else if (parent.Equals("Channel"))
         {
             channel = name;
