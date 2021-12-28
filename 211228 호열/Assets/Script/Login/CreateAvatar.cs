@@ -27,7 +27,6 @@ public class CreateAvatar : MonoBehaviour
         childName.GetComponent<TextMesh>().text = avatarName;
         childName.GetComponent<TextMesh>().characterSize = .5f;
     }
-
     // Update is called once per frame
     void Start()
     {
@@ -41,7 +40,6 @@ public class CreateAvatar : MonoBehaviour
             Debug.Log("남자 캐릭터를 가린다");
             avatar.SetActive(true);
         }
-
     }*/
     
     void Update(){
@@ -61,6 +59,18 @@ public class CreateAvatar : MonoBehaviour
             {
                 GameObject target = GameObject.Find("TargetPosition2");
                 this.transform.position = target.transform.position;
+            }
+            /*
+            else if(prevScene == "LoginScene" && thisScene == "MainScene"){
+                GameObject target = GameObject.Find("StartPoint");
+                this.transform.position = target.transform.position;
+            }
+            */
+            else {
+                if(thisScene != "LoginScene"){
+                    GameObject target = GameObject.Find("StartPoint");
+                    this.transform.position = target.transform.position;
+                }
             }
         }
     }
