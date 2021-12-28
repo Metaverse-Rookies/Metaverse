@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class CharacterMainController : MonoBehaviour
 {
+   
+
     public enum CameraType { FpCamera, TpCamera };
     
     // Components.
@@ -13,7 +15,8 @@ public class CharacterMainController : MonoBehaviour
     {
         public Camera tpCamera;
         public Camera fpCamera;
-
+        public GameObject chair;
+    
         [HideInInspector] public Transform tpRig;
         [HideInInspector] public Transform fpRoot;
         [HideInInspector] public Transform fpRig;
@@ -36,7 +39,8 @@ public class CharacterMainController : MonoBehaviour
         public KeyCode run          = KeyCode.LeftShift;
         public KeyCode jump         = KeyCode.Space;
         public KeyCode switchCamera = KeyCode.Tab;
-        public KeyCode showCursor   = KeyCode.Mouse1;
+        public KeyCode showCursor   = KeyCode.B;
+        public KeyCode sitstand     = KeyCode.LeftAlt;
     }
 
     // State.
@@ -61,22 +65,25 @@ public class CharacterMainController : MonoBehaviour
 
         public string paramJump     = "Jump";
         public string paramGrounded = "Grounded";
-        public string paramSeat     = "SeatButton";
+        public string paramSit      = "Sit";
+        public string paramStand    = "Stand";
+        
+
     }
 
     // MoveOption.
     [Serializable]
     public class MovementOption
     {
-        [Range(1f, 20f), Tooltip("이동속도")]
-        public float speed = 15f;
+        [Range(1f, 15f), Tooltip("이동속도")]
+        public float speed = 7f;
         [Range(1f, 10f), Tooltip("점프 강도")]
-        public float jumpForce = 15f;
+        public float jumpForce = 7f;
         [Tooltip("지면으로 체크할 레이어 설정")]
         public LayerMask groundLayerMask = -1;
         [Range(0.0f, 2.0f), Tooltip("점프 쿨타임")]
         public float jumpCooldown = 1.0f;
-        [Range(1f, 3f), Tooltip("달리기 이동속도 증가 계수")]
+        [Range(1f, 5f), Tooltip("달리기 이동속도 증가 계수")]
         public float runningCoef = 1.5f;
     }
 
@@ -103,14 +110,14 @@ public class CharacterMainController : MonoBehaviour
         public float zoomOutDistance = 3f;
 
         [Range(1f, 30f), Tooltip("줌 속도")]
-        public float zoomSpeed = 10f;
+        public float zoomSpeed = 12f;
 
         [Range(0.01f, 0.5f), Tooltip("줌 가속")]
         public float zoomAccel = 0.1f;
     }
 
 
-    #region .
+    #region.
     public Components Com => _components;
     public KeyOption Key => _keyOption;
     public CharacterState State => _state;
@@ -118,8 +125,6 @@ public class CharacterMainController : MonoBehaviour
     public MovementOption MoveOption => _movementOption;
     public CameraOption CamOption => _cameraOption;
     
-  
-
     [SerializeField] private Components _components = new Components();
     [Space]
     [SerializeField] private KeyOption _keyOption = new KeyOption();
@@ -132,95 +137,102 @@ public class CharacterMainController : MonoBehaviour
     [Space]
     [SerializeField] private CharacterState _state = new CharacterState();
 
-
+    [SerializeField]
+    private float _distFromGround;
+    private float _groundCheckRadius;
+   
 
     // 키보드 입력 받아 움직이는 로컬 이동 벡터.
     private Vector3 _moveDir;
 
     // 월드 이동 벡터.
+
+
+
     private Vector3 _worldMove;
 
     // Lerp를 위한 변수들. 애니메이션 파라미터.
     private float _moveX;
     private float _moveZ;
+    private float _currentJumpCooldown;
 
     // 마우스 움직을 통해 얻는 회전 값.
     private Vector2 _rotation;
-    
-    [SerializeField]
-    private float _distFromGround;
-    private float _groundCheckRadius;
 
     private float _deltaTime;
 
-    /// <summary> TP 카메라 ~ Rig 초기 거리 </summary>
+    // TP 카메라 ~ Rig 초기 거리. 
     private float _tpCamZoomInitialDistance;
 
-    /// <summary> TP 카메라 휠 입력 값 </summary>
+    // TP 카메라 휠 입력 값.
     private float _tpCameraWheelInput = 0;
 
-    /// <summary> 선형보간된 현재 휠 입력 값 </summary>
+    // 선형보간된 현재 휠 입력 값.
     private float _currentWheel;
 
 
-    private float _currentJumpCooldown;
+   
 
-    #endregion
 
-    /***********************************************************************
-    *                               Unity Events
-    ***********************************************************************/
-    # region.
+    #endregion.
+
+    #region.
     private void Start()
     {
+ 
         InitComponents();
         InitSettings();
-        
     }
 
     private void Update()
-    {
-
+    { 
         _deltaTime = Time.deltaTime;
 
         // 확인, 카메라, 키 입력.
-        ShowCursorToggle();
+        // ShowCursorToggle();
         CameraViewToggle();
         SetValuesByKeyInput();
 
-        // 행동, 카메라
+        // 카메라 회전, 움지임(앞, 뒤, 위, 아래, 점프, 앉기)
+        
+        if (stance != "sit")
+        {
+            Jump();
+        }
+
+
         Rotate();
         Move();
-        Jump();
-        //Seatbutton();
-
+        SitandStand();
+        
         // 업데이트.       
         CheckDistanceFromGround();
         UpdateAnimationParams();
         UpdateCurrentValues();
         TpCameraZoom();
     }
-    # endregion
+    #endregion
 
-    /*************************************************************
-                            Init Methods
-    **************************************************************/
     private void InitComponents()
     {
         LogNotInitializedComponentError(Com.tpCamera, "TP Camera");
         LogNotInitializedComponentError(Com.fpCamera, "FP Camera");
         TryGetComponent(out Com.rBody);
 
-
+        // 애니메이션 컴포넌트의 하위 객체 중 가장 선두에 존재하는 컴포넌트를 반환.
         Com.anim        = GetComponentInChildren<Animator>();
+
         Com.tpCamObject = Com.tpCamera.gameObject;
         Com.tpRig       = Com.tpCamera.transform.parent;
+
         Com.fpCamObject = Com.fpCamera.gameObject;
         Com.fpRig       = Com.fpCamera.transform.parent;
         Com.fpRoot      = Com.fpRig.parent;
 
         TryGetComponent(out CapsuleCollider cCol);
         _groundCheckRadius = cCol ? cCol.radius : 0.1f;
+
+       
     }
 
     private void InitSettings()
@@ -249,20 +261,13 @@ public class CharacterMainController : MonoBehaviour
 
     }
 
-    /***********************************************************************
-    *                      Checker Methods
-    ***********************************************************************/
     private void LogNotInitializedComponentError<T>(T component, string componentName) where T : Component
     {
         if (component == null)
             Debug.LogError($"{componentName} 컴포넌트를 인스펙터에 넣어주세요");
     }
-
-    /***********************************************************************
-    *                         Methods
-    ***********************************************************************/
     
-    /// <summary> 키보드 입력 </summary>
+    // 키보드 입력.
     private void SetValuesByKeyInput()
     {
         float h = 0f, v = 0f;
@@ -298,67 +303,94 @@ public class CharacterMainController : MonoBehaviour
         _currentWheel = Mathf.Lerp(_currentWheel, _tpCameraWheelInput, CamOption.zoomAccel);      
     }
 
-    /*private void Seatbutton()
+    // 의자 위치.
+    public GameObject Chair;
+    private string stance = "stand";
+    private void SitandStand()
     {
-        if (Input.GetMouseButtonDown(0))
+        // C 입력 and 상태 stand => 앉기
+        if (Input.GetMouseButtonDown(0) && stance == "stand")
         {
-            Com.anim.SetBool(_animatorOption.paramSeat, true);
-        }
-       
-    }*/
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
 
-    // 카메라 회전
+            if (Physics.Raycast(ray, out hit))
+            {
+            Com.anim.SetTrigger(AnimOption.paramSit);
+            //transform.position = Vector3.Lerp(transform.position, Chair.transform.position, 1f);
+            Debug.Log(stance);
+            stance = "sit";
+            print(stance);
+            }
+        }
+        // 
+        // C 입력 and 상태 sit => 일어서기
+        else if (Input.GetKey(Key.moveRight) | Input.GetKey(Key.moveLeft) | Input.GetKey(Key.moveForward) | Input.GetKey(Key.moveBackward) && stance == "sit") 
+        {
+            Com.anim.SetTrigger(AnimOption.paramStand);
+            transform.position = Com.rBody.position;
+            
+            Debug.Log(stance);
+            stance = "stand";
+            print(stance);
+        }
+
+    }
+
+    // 카메라 회전.
+
+
     private void Rotate()
     {
         if (State.isCurrentFp)
         {   // 1인칭 카메라 전환.
-            //if (!State.isCursorActive)
+            if (!State.isCursorActive)
                 RotateFP();
         }
         else
         {
-           // if (!State.isCursorActive)
+            if (!State.isCursorActive)
                 // 3인칭 카메라 전환.
                 RotateTP();
             RotateFPRoot();
         }
     }
 
-    /// <summary> 1인칭 회전 </summary>
+    //  1인칭 회전.
     private void RotateFP()
     {
         if (Input.GetMouseButton(1))
         {
-            float deltaCoef = Time.deltaTime * 50f;
+        float deltaCoef = Time.deltaTime * 50f;
 
-            // 상하 : FP Rig 회전
-            float xRotPrev = Com.fpRig.localEulerAngles.x;
-            float xRotNext = xRotPrev + _rotation.y
-                * CamOption.rotationSpeed * deltaCoef;
+        // 상하 : FP Rig 회전
+        float xRotPrev = Com.fpRig.localEulerAngles.x;
+        float xRotNext = xRotPrev + _rotation.y
+            * CamOption.rotationSpeed * deltaCoef;
 
-            if (xRotNext > 180f)
-                xRotNext -= 360f;
+        if (xRotNext > 180f)
+            xRotNext -= 360f;
 
-            // 좌우 : FP Root 회전
-            float yRotPrev = Com.fpRoot.localEulerAngles.y;
-            float yRotNext =
-                yRotPrev + _rotation.x
-                * CamOption.rotationSpeed * deltaCoef;
+        // 좌우 : FP Root 회전
+        float yRotPrev = Com.fpRoot.localEulerAngles.y;
+        float yRotNext =
+            yRotPrev + _rotation.x
+            * CamOption.rotationSpeed * deltaCoef;
 
-            // 상하 회전 가능 여부
-            bool xRotatable =
-                CamOption.lookUpDegree < xRotNext &&
-                CamOption.lookDownDegree > xRotNext;
+        // 상하 회전 가능 여부
+        bool xRotatable =
+            CamOption.lookUpDegree < xRotNext &&
+            CamOption.lookDownDegree > xRotNext;
 
-            // FP Rig 상하 회전 적용
-            Com.fpRig.localEulerAngles = Vector3.right * (xRotatable ? xRotNext : xRotPrev);
+        // FP Rig 상하 회전 적용
+        Com.fpRig.localEulerAngles = Vector3.right * (xRotatable ? xRotNext : xRotPrev);
 
-            // FP Root 좌우 회전 적용
-            Com.fpRoot.localEulerAngles = Vector3.up * yRotNext;
+        // FP Root 좌우 회전 적용
+        Com.fpRoot.localEulerAngles = Vector3.up * yRotNext;
         }
     }
 
-    /// <summary> 3인칭 회전 </summary>
+    // 3인칭 회전. 
     private void RotateTP()
     {
         if (Input.GetMouseButton(1))
@@ -394,11 +426,13 @@ public class CharacterMainController : MonoBehaviour
             // TP Rig 회전 적용
             Com.tpRig.localEulerAngles = nextRot;
         }
+       
     }
 
-    /// <summary> 3인칭일 경우 FP Root 회전 </summary>
+    // 3인칭일 경우 FP Root 회전. 
     private void RotateFPRoot()
     {
+        
         if (State.isMoving == false) return;
 
         Vector3 dir = Com.tpRig.TransformDirection(_moveDir);
@@ -409,53 +443,23 @@ public class CharacterMainController : MonoBehaviour
         else if (currentY - nextY > 180f) nextY += 360f;
 
         Com.fpRoot.eulerAngles = Vector3.up * Mathf.Lerp(currentY, nextY, 0.1f);
+        
     }
-
-    private void Move()
-    {
-        // 이동하지 않는 경우, 미끄럼 방지
-        if (State.isMoving == false)
-        {
-            Com.rBody.velocity = new Vector3(0f, Com.rBody.velocity.y, 0f);
-            return;
-        }
-
-        // 실제 이동 벡터 계산
-        // 1인칭
-        if (State.isCurrentFp)
-        {
-            _worldMove = Com.fpRoot.TransformDirection(_moveDir);
-        }
-        // 3인칭
-        else
-        {
-            _worldMove = Com.tpRig.TransformDirection(_moveDir);
-        }
-
-        _worldMove *= (MoveOption.speed) * (State.isRunning ? MoveOption.runningCoef : 1f);
-
-        // Y축 속도는 유지하면서 XZ평면 이동
-        Com.rBody.velocity = new Vector3(_worldMove.x, Com.rBody.velocity.y, _worldMove.z);
-    }
-
- 
-
 
     private void ShowCursorToggle()
     {
-        if(Input.GetKeyDown(Key.showCursor))
-            //State.isCursorActive = !State.isCursorActive;
+        if (Input.GetKeyDown(Key.showCursor))
+            State.isCursorActive = !State.isCursorActive;
 
         ShowCursor(State.isCursorActive);
     }
 
+    // Cursor의 visible 여부에 따른 카메라 토글 움직임 및 정지.
     private void ShowCursor(bool value)
     {
         Cursor.visible = value;
         Cursor.lockState = value ? CursorLockMode.Locked : CursorLockMode.None;
     }
-
-
 
     private void CameraViewToggle()
     {
@@ -464,7 +468,7 @@ public class CharacterMainController : MonoBehaviour
             State.isCurrentFp = !State.isCurrentFp;
             Com.fpCamObject.SetActive(State.isCurrentFp);
             Com.tpCamObject.SetActive(!State.isCurrentFp);
-
+            
             // TP -> FP
             if (State.isCurrentFp)
             {
@@ -513,7 +517,35 @@ public class CharacterMainController : MonoBehaviour
             }
         }
     }
-    /// <summary> 땅으로부터의 거리 체크 </summary>
+
+    private void Move()
+    {
+        // 이동하지 않는 경우, 미끄럼 방지
+        if (State.isMoving == false)
+        {
+            Com.rBody.velocity = new Vector3(0f, Com.rBody.velocity.y, 0f);
+            return;
+        }
+
+        // 실제 이동 벡터 계산
+        // 1인칭
+        if (State.isCurrentFp)
+        {
+            _worldMove = Com.fpRoot.TransformDirection(_moveDir);
+        }
+        // 3인칭
+        else
+        {
+            _worldMove = Com.tpRig.TransformDirection(_moveDir);
+        }
+
+        _worldMove *= (MoveOption.speed) * (State.isRunning ? MoveOption.runningCoef : 1.2f);
+
+        // Y축 속도는 유지하면서 XZ평면 이동
+        Com.rBody.velocity = new Vector3(_worldMove.x, Com.rBody.velocity.y, _worldMove.z);
+    }
+
+    // 땅으로부터의 거리 체크.
     private void CheckDistanceFromGround()
     {
         Vector3 ro = transform.position + Vector3.up;
@@ -523,8 +555,7 @@ public class CharacterMainController : MonoBehaviour
         const float rayDist = 500f;
         const float threshold = 0.01f;
 
-        bool cast =
-            Physics.SphereCast(ray, _groundCheckRadius, out var hit, rayDist, MoveOption.groundLayerMask);
+        bool cast = Physics.SphereCast(ray, _groundCheckRadius, out var hit, rayDist, MoveOption.groundLayerMask);
 
         _distFromGround = cast ? (hit.distance - 1f + _groundCheckRadius) : float.MaxValue;
         State.isGrounded = _distFromGround <= _groundCheckRadius + threshold;
@@ -557,7 +588,6 @@ public class CharacterMainController : MonoBehaviour
         if (_currentJumpCooldown > 0f)
             _currentJumpCooldown -= _deltaTime;
     }
-
 
     private void UpdateAnimationParams()
     {
@@ -598,3 +628,4 @@ public class CharacterMainController : MonoBehaviour
 
 
 }
+
