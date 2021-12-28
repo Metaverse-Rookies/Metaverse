@@ -3,22 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
-using FancyScrollView.Example09;
 
 public class RecDB : MonoBehaviour
 {
-	//OptionSelect optionSelect;
 	public string tvtype = "";
 	public string tvsize = "";
 	public string tvquality = "";
 	public static string result = "";
 
-	Example09 example09;
-	TvChange tvchange;
 	void Start()
     {
-		example09 = GameObject.Find("Canvas").GetComponent<Example09>();
-		tvchange = GameObject.Find("TVs").GetComponent<TvChange>();
+		
     }
 
 	void Update(){
@@ -52,10 +47,7 @@ public class RecDB : MonoBehaviour
 		UnityWebRequest www = UnityWebRequest.Post(url, form);
 
 		yield return www.SendWebRequest();
-		// print(www.downloadHandler.text);
 		result = www.downloadHandler.text;
-		// print(result);
-		example09.showScroll(result);
 	}
 
 

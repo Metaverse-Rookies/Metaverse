@@ -1,10 +1,4 @@
-﻿/*
- * FancyScrollView (https://github.com/setchi/FancyScrollView)
- * Copyright (c) 2020 setchi
- * Licensed under MIT (https://github.com/setchi/FancyScrollView/blob/master/LICENSE)
- */
-
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace FancyScrollView.Example09
 {
@@ -14,24 +8,16 @@ namespace FancyScrollView.Example09
         string  query_result;
         string[] dot_split;
         string[] info_item;
-        void Start()
+        void Update()
         {
             // query_result = "125cm(50인치) 4K UHD TV@상품번호 S3308023@Stand@50@UHD@삼성전자@None@1,190,000원@https://m.etlandmall.co.kr/nas/cdn/attach/product/2021/06/14/S3308023/S3308023_0_500.jpg@\n125cm(50인치) UHD TV@상품번호 S2974243@Stand@50@UHD@삼성전자@None@1,090,000원@https://m.etlandmall.co.kr/nas/cdn/attach/product/2021/03/22/S2974243/S2974243_0_500.png@";//RecDB.result;
-            // query_result = RecDB.result;
-            // print(query_result);
-            // info_item = query_result.Split('\n');
-            // print(info_item.Length);
-            // dot_split = query_result.Split('@');
-            // print(dot_split.Length);
-
-            // ItemData[] itemData = new ItemData[info_item.Length];
-
-            // print(dot_split[8]);
-            // for (int i = 0; i < info_item.Length; i++)
-            // {
-            //     itemData[i] = new ItemData(dot_split[1 + (9 * i)],
-            //         dot_split[0 + (9 * i)], dot_split[8 + (9 * i)]);
-            // }
+            
+            if (query_result != RecDB.result)//달라지면 쿼리 리저트가
+            {
+                query_result = RecDB.result;
+                CreateItem();
+            }
+            
             /*ItemData[] itemData =
             {
                 new ItemData(
@@ -60,18 +46,26 @@ namespace FancyScrollView.Example09
                     "https://m.etlandmall.co.kr/nas/cdn/attach/product/2020/10/14/S0167913/S0167913_0_500.jpg"
                 )
             };*/
-            // scrollView.UpdateData(itemData);
         }
 
-        public void showScroll(string result){
-            Debug.Log("받은것"+result);
-            query_result = result;
+        void CreateItem()
+        {
+            print(query_result);
             info_item = query_result.Split('\n');
             print(info_item.Length);
-
             dot_split = query_result.Split('@');
             print(dot_split.Length);
 
+            ItemData[] itemData = new ItemData[info_item.Length - 1];
+
+            print('2'+dot_split[6]);
+            for (int i = 0; i < info_item.Length - 1; i++)
+            {
+                itemData[i] = new ItemData(dot_split[1 + (9 * i)],
+                    dot_split[0 + (9 * i)], dot_split[6 + (9 * i)]);
+            }
+            scrollView.UpdateData(itemData);
         }
     }
 }
+
