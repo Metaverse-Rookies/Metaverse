@@ -180,7 +180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
       propertyPath: m_ApplyRootMotion
@@ -1228,12 +1228,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1073618544}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3af970da297f29d4283514cbc8f83c5f, type: 3}
+  m_Script: {fileID: 11500000, guid: 609121a8668f64c4e98b21ae93468696, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _components:
     tpCamera: {fileID: 1120501941}
     fpCamera: {fileID: 875780594}
+    chair: {fileID: 0}
     tpRig: {fileID: 0}
     fpRoot: {fileID: 0}
     fpRig: {fileID: 0}
@@ -1250,6 +1251,7 @@ MonoBehaviour:
     jump: 32
     switchCamera: 9
     showCursor: 308
+    sitstand: 308
   _movementOption:
     speed: 15.2
     jumpForce: 8.5
@@ -1273,7 +1275,8 @@ MonoBehaviour:
     paramDistY: Dist Y
     paramJump: Jump
     paramGrounded: Grounded
-    paramSeat: SeatButton
+    paramSit: Sit
+    paramStand: Stand
   _state:
     isCurrentFp: 0
     isMoving: 0
@@ -1281,6 +1284,8 @@ MonoBehaviour:
     isGrounded: 0
     isCursorActive: 0
   _distFromGround: 0
+  Chair: {fileID: 0}
+  stance: stand
 --- !u!95 &1073618549
 Animator:
   serializedVersion: 3
@@ -1328,6 +1333,7 @@ GameObject:
   - component: {fileID: 1120501943}
   - component: {fileID: 1120501941}
   - component: {fileID: 1120501942}
+  - component: {fileID: 1120501944}
   m_Layer: 0
   m_Name: TP Camera
   m_TagString: MainCamera
@@ -1400,6 +1406,23 @@ Transform:
   m_Father: {fileID: 194408486}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1120501944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120501940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f10ab2d02414c2040bea0775db02dda4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mindist: 0.1
+  maxdist: 1
+  smooth: 20
+  dollyDirAdjusted: {x: 0, y: 0, z: 0}
+  distance: 0.5
 --- !u!1 &1292866382
 GameObject:
   m_ObjectHideFlags: 0
