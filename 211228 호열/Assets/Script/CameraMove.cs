@@ -25,8 +25,8 @@ public class CameraMove : MonoBehaviour
 
 
     public float mindist = 0.5f;
-    public float maxdist = 4.0f;
-    public float smooth = 10.0f;
+    public float maxdist = 3.0f;
+    public float smooth = 20.0f;
     Vector3 dollyDIr;
     public Vector3 dollyDirAdjusted;
     public float distance;
@@ -34,7 +34,7 @@ public class CameraMove : MonoBehaviour
     private void Awake()
     {
         dollyDIr = transform.localPosition.normalized;
-        distance = transform.localPosition.magnitude - 1;
+        distance = transform.localPosition.magnitude;
     }
 
     // Start is called before the first frame update
@@ -70,10 +70,10 @@ public class CameraMove : MonoBehaviour
 
 
             Vector3 desiredCamraPos = transform.parent.TransformPoint(dollyDIr * maxdist);
-            Debug.DrawRay(this.transform.position, desiredCamraPos, Color.green);
+            // Debug.DrawRay(this.transform.position, desiredCamraPos, Color.green);
             RaycastHit hit;
 
-            if (Physics.Linecast(transform.parent.position, desiredCamraPos - new Vector3(1, 0, 2), out hit))
+            if (Physics.Linecast(transform.parent.position, desiredCamraPos, out hit))
             {
                 distance = Mathf.Clamp(hit.distance, mindist, maxdist);
 

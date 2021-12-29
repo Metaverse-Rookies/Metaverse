@@ -50,15 +50,16 @@ namespace FancyScrollView.Example09
 
         void CreateItem()
         {
-            print(query_result);
+            print("쿼리결과" + query_result);
             info_item = query_result.Split('\n');
             print(info_item.Length);
             dot_split = query_result.Split('@');
             print(dot_split.Length);
-
+            print("상품설명" + dot_split[0]);
+            
             ItemData[] itemData = new ItemData[info_item.Length - 1];
 
-            print('2'+dot_split[6]);
+            print("이미지주소" + dot_split[6]);
             for (int i = 0; i < info_item.Length - 1; i++)
             {
                 itemData[i] = new ItemData(dot_split[1 + (9 * i)],

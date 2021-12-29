@@ -321,7 +321,7 @@ public class CharacterMainController : MonoBehaviour
             Debug.Log(stance);
             stance = "sit";
             print(stance);
-            }
+           }
         }
         // 
         // C 입력 and 상태 sit => 일어서기

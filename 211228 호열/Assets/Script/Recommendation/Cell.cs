@@ -27,6 +27,7 @@ namespace FancyScrollView.Example09
         {
             data = itemData;
             image.texture = null;
+            image.GetComponent<RectTransform>().sizeDelta = new Vector2(400, 320);
 
             TextureLoader.Load(itemData.Url, result =>
             {
