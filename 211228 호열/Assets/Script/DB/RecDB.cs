@@ -13,7 +13,7 @@ public class RecDB : MonoBehaviour
 
 	void Start()
     {
-		
+
     }
 
 	void Update(){
@@ -48,6 +48,7 @@ public class RecDB : MonoBehaviour
 
 		yield return www.SendWebRequest();
 		result = www.downloadHandler.text;
+		print(result);
 	}
 
 
