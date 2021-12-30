@@ -13,7 +13,6 @@ public class CreateAvatar : MonoBehaviour
     // 씬 이동 저장을 위한 변수
     public string prevScene;
     public string thisScene;
-
     
     void Update(){
         // 씬 전환
