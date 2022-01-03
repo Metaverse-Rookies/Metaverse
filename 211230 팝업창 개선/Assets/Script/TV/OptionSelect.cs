@@ -37,6 +37,7 @@ public class OptionSelect : MonoBehaviour
         if (parent.Equals("Type"))
         {
             type = name;
+            //obj = GameObject.Find("Category");
             // quality = qualityChange.nowQuality;
             tvchange.changeTV(type);
             channelChange.changeChannel(channel);
