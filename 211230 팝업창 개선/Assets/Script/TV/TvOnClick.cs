@@ -16,19 +16,19 @@ public class TvOnClick : MonoBehaviour
     {
         // print("시작");
         popup.SetActive(false);
-        testCam = Camera.main;
+        // testCam = Camera.main;
     }
 
     // Update is called once per frame
     void Update()
     {
-        testCam = Camera.main;
+        testCam = Camera.current;
     }
 
 
     void OnMouseDown() {
         // Debug.Log("여기클릭");
-        testCam = Camera.main;
+        // testCam = Camera.main;
         //Debug.Log(testCam.name);
         Ray ray = testCam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit = new RaycastHit();
