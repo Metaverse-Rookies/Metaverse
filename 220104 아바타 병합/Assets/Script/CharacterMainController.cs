@@ -85,9 +85,11 @@ public class CharacterMainController : MonoBehaviour
         public float jumpCooldown = 1.0f;
         [Range(1f, 5f), Tooltip("달리기 이동속도 증가 계수")]
         public float runningCoef = 1.5f;
+        // CameraOption.
     }
 
-    // CameraOption.
+    public static string stance = "stand";
+
     [Serializable]
     public class CameraOption
     {
@@ -203,7 +205,8 @@ public class CharacterMainController : MonoBehaviour
 
         Rotate();
         Move();
-        //SitandStand();
+        // SitandStand();
+        Stand();
         
         // 업데이트.       
         CheckDistanceFromGround();
@@ -302,45 +305,44 @@ public class CharacterMainController : MonoBehaviour
 
         _currentWheel = Mathf.Lerp(_currentWheel, _tpCameraWheelInput, CamOption.zoomAccel);      
     }
-    
-    
-    // 의자 위치.
-    public GameObject Chair;
-    private string stance = "stand";
-    private void SitandStand()
-    {
-        
-        // C 입력 and 상태 stand => 앉기
-        if (Input.GetMouseButtonDown(0) && stance == "stand")
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit))
-            {
-                Com.anim.SetTrigger(AnimOption.paramSit);
-                //transform.position = Vector3.Lerp(transform.position, Chair.transform.position, 1f);
-                //Chair.GetComponent<BoxCollider>().enabled = false;
-                Debug.Log(stance);
-                stance = "sit";
-                print(stance);
-           }
-        }
+    // 의자 위치.
+    
+
+    /*public void OnMouseDown()
+    {
+        // C 입력 and 상태 stand => 앉기
+        if (stance == "stand")
+        {
+            //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            //RaycastHit hit;
+
+            //if (Physics.Raycast(ray, out hit))
+            //{
+            Com.chair.GetComponent<BoxCollider>().enabled = false;
+            Com.anim.SetTrigger(AnimOption.paramSit);
+            transform.position = Vector3.Lerp(transform.position, Com.chair.transform.position, 1f);
+            Debug.Log(stance);
+            stance = "sit";
+        */
+   
+    private void Stand()
+    {
         // 
         // C 입력 and 상태 sit => 일어서기
-        else if (Input.GetKey(Key.moveRight) | Input.GetKey(Key.moveLeft) | Input.GetKey(Key.moveForward) | Input.GetKey(Key.moveBackward) && stance == "sit") 
+        if (Input.GetKey(Key.moveRight) | Input.GetKey(Key.moveLeft) | Input.GetKey(Key.moveForward) | Input.GetKey(Key.moveBackward) && stance == "sit")
         {
+            Com.chair.GetComponent<BoxCollider>().enabled = true;
             Com.anim.SetTrigger(AnimOption.paramStand);
-            //Chair.GetComponent<BoxCollider>().enabled = true;
-
             transform.position = Com.rBody.position;
-            
             Debug.Log(stance);
             stance = "stand";
-            print(stance);
-        }
 
+        }
     }
+       
+        
+
 
     // 카메라 회전.
 
