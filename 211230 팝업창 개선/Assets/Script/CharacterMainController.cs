@@ -203,7 +203,7 @@ public class CharacterMainController : MonoBehaviour
 
         Rotate();
         Move();
-        SitandStand();
+        //SitandStand();
         
         // 업데이트.       
         CheckDistanceFromGround();
@@ -302,12 +302,14 @@ public class CharacterMainController : MonoBehaviour
 
         _currentWheel = Mathf.Lerp(_currentWheel, _tpCameraWheelInput, CamOption.zoomAccel);      
     }
-
+    
+    
     // 의자 위치.
     public GameObject Chair;
     private string stance = "stand";
     private void SitandStand()
     {
+        
         // C 입력 and 상태 stand => 앉기
         if (Input.GetMouseButtonDown(0) && stance == "stand")
         {
@@ -316,11 +318,12 @@ public class CharacterMainController : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-            Com.anim.SetTrigger(AnimOption.paramSit);
-            //transform.position = Vector3.Lerp(transform.position, Chair.transform.position, 1f);
-            Debug.Log(stance);
-            stance = "sit";
-            print(stance);
+                Com.anim.SetTrigger(AnimOption.paramSit);
+                //transform.position = Vector3.Lerp(transform.position, Chair.transform.position, 1f);
+                //Chair.GetComponent<BoxCollider>().enabled = false;
+                Debug.Log(stance);
+                stance = "sit";
+                print(stance);
            }
         }
         // 
@@ -328,6 +331,8 @@ public class CharacterMainController : MonoBehaviour
         else if (Input.GetKey(Key.moveRight) | Input.GetKey(Key.moveLeft) | Input.GetKey(Key.moveForward) | Input.GetKey(Key.moveBackward) && stance == "sit") 
         {
             Com.anim.SetTrigger(AnimOption.paramStand);
+            //Chair.GetComponent<BoxCollider>().enabled = true;
+
             transform.position = Com.rBody.position;
             
             Debug.Log(stance);
