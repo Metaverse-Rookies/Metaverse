@@ -17,7 +17,7 @@ public class BtnOnClick : MonoBehaviour
 
         if(isClicked){
             popup.SetActive(false);
-            Debug.Log("Tv Popup window Close");
+            Debug.Log("window Close");
             isClicked = false;
         }
     }

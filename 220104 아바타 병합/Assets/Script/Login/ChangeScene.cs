@@ -16,6 +16,7 @@ public class ChangeScene : MonoBehaviour
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(GameObject.Find("AvatarInfoUI"));
     }
 
     private void Start()
