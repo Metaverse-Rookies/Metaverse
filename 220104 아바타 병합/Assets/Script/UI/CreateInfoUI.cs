@@ -11,12 +11,11 @@ public class CreateInfoUI : MonoBehaviour
     string name;
     public GameObject avatarName;
     // public TMP_Text avatarName;
-    GameObject child;
+    public GameObject id;
 
     void Start() {
         popup = GameObject.Find("AvatarInfoUI");
         popup_flag = popup.GetComponent<Canvas>().enabled;
-        child = popup.transform.Find("Id").gameObject;
     }
 
     void OnMouseDown() {
@@ -25,7 +24,7 @@ public class CreateInfoUI : MonoBehaviour
             popup.GetComponent<Canvas>().enabled = true;
             name = avatarName.GetComponent<TextMesh>().text;
             print(name);
-            child.GetComponent<Text>().text = name;
+            id.GetComponent<Text>().text = name;
         }
     }
 }
