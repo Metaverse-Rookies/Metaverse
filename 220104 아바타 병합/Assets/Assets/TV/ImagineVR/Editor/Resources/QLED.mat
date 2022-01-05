@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: UHD
-  m_Shader: {fileID: 4800000, guid: 6464c699261c8484486702c2848ca96d, type: 3}
+  m_Name: QLED
+  m_Shader: {fileID: 4800000, guid: 3177fc0552121854aa2bbbc6112c8114, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
@@ -21,5 +21,5 @@ Material:
     m_TexEnvs: []
     m_Floats: []
     m_Colors:
-    - _CellSize: {r: 0.001, g: 0.001, b: 0, a: 0}
+    - _CellSize: {r: 0.002, g: 0.002, b: 0, a: 0}
   m_BuildTextureStacks: []

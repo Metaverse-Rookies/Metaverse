@@ -1,10 +1,10 @@
 ﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
 
-Shader "Custom\QHD" 
+Shader "Custom\OLED" 
 {
     Properties 
     {
-        _CellSize ("Cell Size", Vector) = (0.005, 0.005, 0, 0)
+        _CellSize ("Cell Size", Vector) = (0, 0, 0, 0)
     }
     SubShader {
         Tags { "RenderType"="Opaque" "Queue" = "Transparent" }

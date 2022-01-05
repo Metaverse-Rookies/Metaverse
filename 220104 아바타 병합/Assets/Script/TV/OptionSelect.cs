@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class OptionSelect : MonoBehaviour
 {
-    public GameObject obj;
-    public bool isClicked = false;
-    
     public static string type = "";
     public static string size = "";
     public static string channel = "";
@@ -25,12 +22,11 @@ public class OptionSelect : MonoBehaviour
     void Update()
     {
         Cursor.visible = true;
-        // Debug.Log(type+","+size+","+channel+","+quality+"\n");
     }
 
     public void ButtonClick()
     {
-        isClicked = true;
+        // isClicked = true;
         string name = this.gameObject.name;
         string parent = transform.parent.gameObject.name;
 

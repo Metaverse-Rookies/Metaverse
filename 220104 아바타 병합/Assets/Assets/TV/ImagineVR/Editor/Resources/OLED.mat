@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: UHD
+  m_Name: OLED
   m_Shader: {fileID: 4800000, guid: 6464c699261c8484486702c2848ca96d, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5

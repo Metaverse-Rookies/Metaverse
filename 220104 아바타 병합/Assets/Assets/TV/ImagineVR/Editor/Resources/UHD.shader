@@ -4,7 +4,7 @@ Shader "Custom\UHD"
 {
     Properties 
     {
-        _CellSize ("Cell Size", Vector) = (0.00005, 0.00005, 0, 0)
+        _CellSize ("Cell Size", Vector) = (0.0005, 0.0005, 0, 0)
     }
     SubShader {
         Tags { "RenderType"="Opaque" "Queue" = "Transparent" }

@@ -16,7 +16,7 @@ public class TvChange : MonoBehaviour
     bool flag = false;
 
     //크기조절
-    private Vector3 sizeFourty, sizeFifty;
+    private Vector3 sizeFourty, sizeFifty, sizeSeventy, sizeEighty;
 
     private Vector3 positionWall, positionStand;
 
@@ -35,6 +35,8 @@ public class TvChange : MonoBehaviour
         //인치별 크기조절
         sizeFourty = new Vector3(5.9f, 5.5f, 2.0f);
         sizeFifty = new Vector3(7.3f, 6.7f, 2.0f);
+        sizeSeventy = new Vector3(9.4f, 8.9f, 2.0f);
+        sizeEighty = new Vector3(11.9084f, 11.30255f, 2.0f);
 
         positionWall = new Vector3(22.0f, -3.0f, 14.0f);
         positionStand = new Vector3(22.0f, -5.0f, 13.0f);
@@ -59,30 +61,16 @@ public class TvChange : MonoBehaviour
             // Debug.Log("stand 활성화");
             stand.SetActive(true);
             tv.transform.localPosition = positionStand;
-            if (nowSize == "40")
-            {
-                tv.transform.localScale = sizeFourty;
-            }else if (nowSize == "50")
-            {
-                tv.transform.localScale = sizeFifty;
-            }
             nowType = "Stand";
-
+            resize(nowSize);
         }
         else if (name == "Hanging")
         {
             // Debug.Log("stand 비활성화");
             stand.SetActive(false);
             tv.transform.localPosition = positionWall;
-            if (nowSize == "40")
-            {
-                tv.transform.localScale = sizeFourty;
-            }
-            else if (nowSize == "50")
-            {
-                tv.transform.localScale = sizeFifty;
-            }
             nowType = "Hanging";
+            resize(nowSize);
         }
         flag = true;
     }
@@ -92,32 +80,40 @@ public class TvChange : MonoBehaviour
         if (size == "40")
         {
             tv.transform.localScale = sizeFourty;
-            if (nowType == "Stand")
-            {
-                //스탠드 40인치로 조절
-                tv.transform.localPosition = positionStand;
-            }
-            else
-            {
-                //벽걸이 40인치로 조절
-                tv.transform.localPosition = positionWall;
-            }
             nowSize = "40";
         }
         else if(size == "50")
         {
             tv.transform.localScale = sizeFifty;
-            if (nowType == "Stand")
-            {
-                //스탠드 50인치로 조절
-                tv.transform.localPosition = positionStand;
-            }
-            else
-            {
-                //벽걸이 50인치로 조절
-                tv.transform.localPosition = positionWall;
-            }
             nowSize = "50";
+        }
+        else if(size == "70")
+        {
+            tv.transform.localScale = sizeSeventy;
+            nowSize = "70";
+        }
+        else if(size == "80")
+        {
+            tv.transform.localScale = sizeEighty;
+            nowSize = "80";
+        }
+
+
+        if (nowType == "Stand")
+        {
+            //스탠드 40인치로 조절
+            tv.transform.localPosition = positionStand;
+            if(nowSize=="70"){
+                tv.transform.localPosition += new Vector3(0.0f, 1.0f, 0.0f);
+            }else if(nowSize=="80"){
+                Debug.Log("여기되나");
+                tv.transform.localPosition += new Vector3(0.0f, 2.0f, 0.0f);
+            }
+        }
+        else
+        {
+            //벽걸이 40인치로 조절
+            tv.transform.localPosition = positionWall;
         }
     }
 
