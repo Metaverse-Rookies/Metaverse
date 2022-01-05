@@ -4,40 +4,20 @@ using UnityEngine;
 
 public class TvOnClick : MonoBehaviour
 {
-    // Ŭ�� �̺�Ʈ�� ������ ��ü
     public GameObject popup;
-    // public Camera testCam;
-    Camera testCam;
-
-    private RaycastHit hit;
 
     // Start is called before the first frame update
     void Start()
     {
-        // print("시작");
         popup.SetActive(false);
-        // testCam = Camera.main;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        testCam = Camera.current;
-    }
-
 
     void OnMouseDown() {
-        // Debug.Log("여기클릭");
-        // testCam = Camera.main;
-        //Debug.Log(testCam.name);
-        Ray ray = testCam.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit = new RaycastHit();
-
-        if(true == (Physics.Raycast(ray.origin, ray.direction * 10, out hit)))
-        {
-            //Debug.Log("����");
+        // PaperingUI 겹치지 않게
+        // PaperingUI를 찾을 수 없다. --> 비활성화된 상태 --> 그럼 TvUI 띄워도 됨
+        // PaperingUI를 찾을 수 있다. --> 이미 띄워져있는 상태 --> 그럼 TvUI 띄우면 안됨
+        // if(popup.activeSelf == false) --> activeSelf는 활성화 상태인지, 비활성화 상태인지를 구분
+        if(!GameObject.Find("PaperingUI"))
             popup.SetActive(true);
-        }
     }
-
 }

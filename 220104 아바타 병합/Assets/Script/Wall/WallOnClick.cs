@@ -9,9 +9,14 @@ public class WallOnClick : MonoBehaviour
     void Start()
     {
         popup.SetActive(false);
-    }
-
+    }    
+    
     void OnMouseDown() {
-        popup.SetActive(true);
+        // TvUI랑 겹치지 않게
+        // TvUI를 찾을 수 없다. --> 비활성화된 상태 --> 그럼 PaperingUI 띄워도 됨
+        // TvUI를 찾을 수 있다. --> 이미 띄워져있는 상태 --> 그럼 PaperingUI 띄우면 안됨
+        if(!GameObject.Find("Canvas (1)")){ 
+            popup.SetActive(true);
+        }
     }
 }
