@@ -19,6 +19,7 @@ public class BtnOnClick : MonoBehaviour
             popup.SetActive(false);
             Debug.Log("window Close");
             isClicked = false;
+            TvOnClick.character_info.SetActive(true);
         }
     }
 

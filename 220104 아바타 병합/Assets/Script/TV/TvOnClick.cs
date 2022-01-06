@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class TvOnClick : MonoBehaviour
 {
+    public static GameObject character_info;
     public GameObject popup;
 
     // Start is called before the first frame update
     void Start()
     {
         popup.SetActive(false);
+        character_info = GameObject.Find("AvatarInfoUI");
     }
 
     void OnMouseDown() {
@@ -18,6 +20,9 @@ public class TvOnClick : MonoBehaviour
         // PaperingUI를 찾을 수 있다. --> 이미 띄워져있는 상태 --> 그럼 TvUI 띄우면 안됨
         // if(popup.activeSelf == false) --> activeSelf는 활성화 상태인지, 비활성화 상태인지를 구분
         if(!GameObject.Find("PaperingUI"))
+        {
             popup.SetActive(true);
+            character_info.SetActive(false);
+        }
     }
 }

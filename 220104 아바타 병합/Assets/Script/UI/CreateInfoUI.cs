@@ -21,6 +21,7 @@ public class CreateInfoUI : MonoBehaviour
     void OnMouseDown() {
         if (!popup_flag)
         {
+            popup_flag = true;
             popup.GetComponent<Canvas>().enabled = true;
             name = avatarName.GetComponent<TextMesh>().text;
             id.GetComponent<Text>().text = name;
