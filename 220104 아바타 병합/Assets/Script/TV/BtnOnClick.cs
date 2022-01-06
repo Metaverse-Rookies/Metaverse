@@ -10,7 +10,7 @@ public class BtnOnClick : MonoBehaviour
     public Button btn;
     
     public bool isClicked = false;
-    
+
     public void ButtonClick(){
         isClicked = true;
         Debug.Log(isClicked);

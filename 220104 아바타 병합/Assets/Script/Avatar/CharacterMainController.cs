@@ -307,7 +307,7 @@ public class CharacterMainController : MonoBehaviour
     }
 
     // 의자 위치.
-    
+
 
     /*public void OnMouseDown()
     {
@@ -325,14 +325,16 @@ public class CharacterMainController : MonoBehaviour
             Debug.Log(stance);
             stance = "sit";
         */
-   
+
+    GameObject chair = null;
     private void Stand()
     {
-        // 
+        chair = GameObject.Find("Chair");
         // C 입력 and 상태 sit => 일어서기
         if (Input.GetKey(Key.moveRight) | Input.GetKey(Key.moveLeft) | Input.GetKey(Key.moveForward) | Input.GetKey(Key.moveBackward) && stance == "sit")
         {
-            Com.chair.GetComponent<BoxCollider>().enabled = true;
+
+            chair.GetComponent<BoxCollider>().enabled = true;
             Com.anim.SetTrigger(AnimOption.paramStand);
             transform.position = Com.rBody.position;
             Debug.Log(stance);
@@ -340,8 +342,8 @@ public class CharacterMainController : MonoBehaviour
 
         }
     }
-       
-        
+
+
 
 
     // 카메라 회전.
@@ -635,4 +637,3 @@ public class CharacterMainController : MonoBehaviour
 
 
 }
-

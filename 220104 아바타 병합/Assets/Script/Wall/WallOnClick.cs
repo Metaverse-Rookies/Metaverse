@@ -6,6 +6,7 @@ public class WallOnClick : MonoBehaviour
 {
     public GameObject popup;
     // Start is called before the first frame update
+
     void Start()
     {
         popup.SetActive(false);
