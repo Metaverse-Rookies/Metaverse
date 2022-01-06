@@ -9,7 +9,7 @@ using TMPro;
 public class ChangeScene : MonoBehaviour
 {
     public string nowButton;
-    public string genderButton;
+    public static string genderButton;
     public string name;
     public TMP_InputField nameInputField;
     // Start is called before the first frame update

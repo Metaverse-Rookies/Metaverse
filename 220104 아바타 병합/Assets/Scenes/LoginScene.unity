@@ -428,6 +428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   avatarName: {fileID: 2131837062}
   id: {fileID: 7742616438652915448}
+  gender: {fileID: 7742616437166435582}
 --- !u!1 &915933409
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,7 +638,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nowButton: 
-  genderButton: 
   name: 
   nameInputField: {fileID: 3695404427995180207}
 --- !u!4 &1048833400
@@ -3917,7 +3917,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0a90a1122771fb5439b5a7fb974358ee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4057fc7b56786e640924579e995aa5be, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

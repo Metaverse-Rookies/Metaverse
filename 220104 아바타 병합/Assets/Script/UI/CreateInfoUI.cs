@@ -12,7 +12,7 @@ public class CreateInfoUI : MonoBehaviour
     public GameObject avatarName;
     // public TMP_Text avatarName;
     public GameObject id;
-
+    public GameObject gender;
     void Start() {
         popup = GameObject.Find("AvatarInfoUI");
         popup_flag = popup.GetComponent<Canvas>().enabled;
@@ -23,8 +23,8 @@ public class CreateInfoUI : MonoBehaviour
         {
             popup.GetComponent<Canvas>().enabled = true;
             name = avatarName.GetComponent<TextMesh>().text;
-            print(name);
             id.GetComponent<Text>().text = name;
+            gender.GetComponent<Text>().text = ChangeScene.genderButton;
         }
     }
 }
