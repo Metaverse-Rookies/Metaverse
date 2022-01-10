@@ -25,16 +25,22 @@ public class CreateAvatar : MonoBehaviour
             if(prevScene == "Apartment" && thisScene == "MainScene")
             {
                 GameObject target = GameObject.Find("TargetPosition1");
+                if (GameObject.Find("AvatarInfoUI"))
+                    GameObject.Find("AvatarInfoUI").SetActive(false);
                 this.transform.position = target.transform.position;
             }
             else if(prevScene == "40Apartment" && thisScene == "MainScene")
             {
                 GameObject target = GameObject.Find("TargetPosition2");
+                if (GameObject.Find("AvatarInfoUI"))
+                    GameObject.Find("AvatarInfoUI").SetActive(false);
                 this.transform.position = target.transform.position;
             }
             else {
                 if(thisScene != "LoginScene"){
                     GameObject target = GameObject.Find("StartPoint");
+                    if (GameObject.Find("AvatarInfoUI"))
+                        GameObject.Find("AvatarInfoUI").SetActive(false);
                     this.transform.position = target.transform.position;
                 }
             }
