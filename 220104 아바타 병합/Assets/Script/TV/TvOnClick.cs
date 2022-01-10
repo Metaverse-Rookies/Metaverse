@@ -19,7 +19,7 @@ public class TvOnClick : MonoBehaviour
         // PaperingUI를 찾을 수 없다. --> 비활성화된 상태 --> 그럼 TvUI 띄워도 됨
         // PaperingUI를 찾을 수 있다. --> 이미 띄워져있는 상태 --> 그럼 TvUI 띄우면 안됨
         // if(popup.activeSelf == false) --> activeSelf는 활성화 상태인지, 비활성화 상태인지를 구분
-        if(!GameObject.Find("PaperingUI"))
+        if(!GameObject.FindWithTag("Canvas")) 
         {
             popup.SetActive(true);
             // character_info.SetActive(false);
