@@ -9,11 +9,12 @@ public class InfoUiXButton : MonoBehaviour
 
     public void BtnOnClick()
     {
-        popup_flag = popup.GetComponent<Canvas>().enabled;
+        popup.SetActive(false);
+        // popup_flag = popup.GetComponent<Canvas>().enabled;
 
-        if(popup_flag)
-        {
-            popup.GetComponent<Canvas>().enabled = false;
-        }
+        // if(popup_flag)
+        // {
+        //     popup.GetComponent<Canvas>().enabled = false;
+        // }
     }
 }

@@ -22,7 +22,7 @@ public class TvOnClick : MonoBehaviour
         if(!GameObject.Find("PaperingUI"))
         {
             popup.SetActive(true);
-            character_info.SetActive(false);
+            // character_info.SetActive(false);
         }
     }
 }

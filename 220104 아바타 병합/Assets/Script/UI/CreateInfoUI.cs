@@ -15,12 +15,14 @@ public class CreateInfoUI : MonoBehaviour
     public GameObject gender;
     void Start() {
         popup = GameObject.Find("AvatarInfoUI");
-        popup_flag = popup.GetComponent<Canvas>().enabled;
+        // popup_flag = popup.GetComponent<Canvas>().enabled;
+        popup.SetActive(false);
     }
 
     void OnMouseDown() {
         if(!GameObject.FindGameObjectWithTag("Canvas")){
-            popup.GetComponent<Canvas>().enabled = true;
+            // popup.GetComponent<Canvas>().enabled = true;
+            popup.SetActive(true);
             name = avatarName.GetComponent<TextMesh>().text;
             id.GetComponent<Text>().text = name;
             gender.GetComponent<Text>().text = ChangeScene.genderButton;

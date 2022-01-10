@@ -11,6 +11,8 @@ public class BtnOnClick : MonoBehaviour
     
     public bool isClicked = false;
 
+    
+
     public void ButtonClick(){
         isClicked = true;
         Debug.Log(isClicked);
@@ -19,7 +21,9 @@ public class BtnOnClick : MonoBehaviour
             popup.SetActive(false);
             Debug.Log("window Close");
             isClicked = false;
-            TvOnClick.character_info.SetActive(true);
+            ChannelChange.document.SetActive(false);
+            ChannelChange.ani.SetActive(false);
+            ChannelChange.drama.SetActive(false);
         }
     }
 
@@ -54,6 +58,9 @@ public class BtnOnClick : MonoBehaviour
             Debug.Log("TV Recommend window Close");
 
             isClicked = false;
+            ChannelChange.document.SetActive(false);
+            ChannelChange.ani.SetActive(false);
+            ChannelChange.drama.SetActive(false);
         }
     }
     /*

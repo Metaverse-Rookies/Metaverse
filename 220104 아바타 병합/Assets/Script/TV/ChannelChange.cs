@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ChannelChange : MonoBehaviour
 {
-    GameObject document;
-    GameObject ani;
-    GameObject drama;
+    public static GameObject document;
+    public static GameObject ani;
+    public static GameObject drama;
 
     public GameObject ui;
 
