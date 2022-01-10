@@ -5577,16 +5577,28 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5875492400862230006, guid: 0453db8e60d28f546ae7a49e52a39a9a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.8154
+      objectReference: {fileID: 0}
+    - target: {fileID: 5875492400862230006, guid: 0453db8e60d28f546ae7a49e52a39a9a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.8154
+      objectReference: {fileID: 0}
+    - target: {fileID: 5875492400862230006, guid: 0453db8e60d28f546ae7a49e52a39a9a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.8154
+      objectReference: {fileID: 0}
+    - target: {fileID: 5875492400862230006, guid: 0453db8e60d28f546ae7a49e52a39a9a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.68
+      value: 12.304
       objectReference: {fileID: 0}
     - target: {fileID: 5875492400862230006, guid: 0453db8e60d28f546ae7a49e52a39a9a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.35
+      value: -3.8992
       objectReference: {fileID: 0}
     - target: {fileID: 5875492400862230006, guid: 0453db8e60d28f546ae7a49e52a39a9a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 65.7
+      value: 60.123
       objectReference: {fileID: 0}
     - target: {fileID: 5875492400862230006, guid: 0453db8e60d28f546ae7a49e52a39a9a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -11011,7 +11023,7 @@ PrefabInstance:
     - target: {fileID: 4813639414101524972, guid: 0f5a42c3c4299bf4697104960d1fa3ed, type: 3}
       propertyPath: m_VideoClip
       value: 
-      objectReference: {fileID: 32900000, guid: 9667b4cc456bcae4bba5e9d41756df14, type: 3}
+      objectReference: {fileID: 32900000, guid: ea49af48bbaa0db4999bf61309d14a28, type: 3}
     - target: {fileID: 4813639414101524973, guid: 0f5a42c3c4299bf4697104960d1fa3ed, type: 3}
       propertyPath: m_LocalPosition.x
       value: 23.91
@@ -11027,11 +11039,11 @@ PrefabInstance:
     - target: {fileID: 4813639414269414157, guid: 0f5a42c3c4299bf4697104960d1fa3ed, type: 3}
       propertyPath: m_VideoClip
       value: 
-      objectReference: {fileID: 32900000, guid: 92e09b38401a56b4295b9a4fa91ad116, type: 3}
+      objectReference: {fileID: 32900000, guid: b53a32f6b39eed444a9699e3af9169df, type: 3}
     - target: {fileID: 4813639415783863525, guid: 0f5a42c3c4299bf4697104960d1fa3ed, type: 3}
       propertyPath: m_VideoClip
       value: 
-      objectReference: {fileID: 32900000, guid: 5cced58354b29174ca92cb6f3f9f22f6, type: 3}
+      objectReference: {fileID: 32900000, guid: 395484e2cf110304cacfb0ac0b495a8b, type: 3}
     - target: {fileID: 4813639415783863526, guid: 0f5a42c3c4299bf4697104960d1fa3ed, type: 3}
       propertyPath: m_LocalPosition.x
       value: 23.91
@@ -15371,7 +15383,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1961050475942257059}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 8ba78056eee485c408b8d939932bc7d5, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 395484e2cf110304cacfb0ac0b495a8b, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -15503,7 +15515,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1961050477196123723}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 6f1037b3ea95534438ec02d8f15a4380, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: b53a32f6b39eed444a9699e3af9169df, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -15671,7 +15683,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1961050477498782890}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: ec72bbe950a0b554fbee1722e94236f9, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: ea49af48bbaa0db4999bf61309d14a28, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
