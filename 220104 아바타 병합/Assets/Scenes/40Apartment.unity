@@ -3315,7 +3315,7 @@ GameObject:
   - component: {fileID: 396475169}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16726,6 +16726,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3258917762394606948, guid: 9a9c1a3838b28b44b969d7208c374f3d, type: 3}
+      propertyPath: m_TagString
+      value: Canvas
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a9c1a3838b28b44b969d7208c374f3d, type: 3}
 --- !u!33 &3341008219378237717
@@ -18141,7 +18145,7 @@ GameObject:
   - component: {fileID: 3726843176954009311}
   m_Layer: 5
   m_Name: Canvas (1)
-  m_TagString: Untagged
+  m_TagString: Canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

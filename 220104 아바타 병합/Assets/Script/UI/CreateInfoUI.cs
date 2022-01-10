@@ -10,7 +10,7 @@ public class CreateInfoUI : MonoBehaviour
     bool popup_flag;
     string name;
     public GameObject avatarName;
-    // public TMP_Text avatarName;
+    // public TMP_Text avatarName; 
     public GameObject id;
     public GameObject gender;
     void Start() {
@@ -19,6 +19,13 @@ public class CreateInfoUI : MonoBehaviour
     }
 
     void OnMouseDown() {
+        if(!GameObject.FindGameObjectWithTag("Canvas")){
+            popup.GetComponent<Canvas>().enabled = true;
+            name = avatarName.GetComponent<TextMesh>().text;
+            id.GetComponent<Text>().text = name;
+            gender.GetComponent<Text>().text = ChangeScene.genderButton;
+        }
+        /*
         if (!popup_flag)
         {
             popup_flag = true;
@@ -27,5 +34,6 @@ public class CreateInfoUI : MonoBehaviour
             id.GetComponent<Text>().text = name;
             gender.GetComponent<Text>().text = ChangeScene.genderButton;
         }
+        */
     }
 }
