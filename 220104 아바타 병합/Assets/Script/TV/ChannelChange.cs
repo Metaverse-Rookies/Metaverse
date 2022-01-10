@@ -103,7 +103,7 @@ public class ChannelChange : MonoBehaviour
 
     public void resize(string size)
     {
-        for(int i=0;i<5;i++){
+        for(int i=0;i<3;i++){
             GameObject channel = transform.GetChild(i).gameObject;
             if(nowChannel==channel.name){
                 if (size == "40")
