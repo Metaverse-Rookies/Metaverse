@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OptionSelect : MonoBehaviour
 {
+    int cnt = 1;
     public static string type = "";
     public static string size = "";
     public static string channel = "";
@@ -27,6 +29,12 @@ public class OptionSelect : MonoBehaviour
     public void ButtonClick()
     {
         // isClicked = true;
+        // 부모의 자식들을 다 원래색으로 바꿔주고 
+        for(int i = 1; i < gameObject.transform.parent.childCount; i++){
+            gameObject.transform.parent.GetChild(i).GetComponent<Image>().color = new Color(255/255f, 255/255f, 255/255f);
+        }
+        // 나만 어두운색으로 바꿈
+        gameObject.GetComponent<Image>().color = new Color(103/255f, 154/255f, 195/255f);
         string name = this.gameObject.name;
         string parent = transform.parent.gameObject.name;
 
@@ -55,5 +63,7 @@ public class OptionSelect : MonoBehaviour
             qualityChange.changeQuality(quality);
         }
             
+        cnt = 3;
     }
+    
 }

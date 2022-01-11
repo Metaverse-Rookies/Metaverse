@@ -8,16 +8,30 @@ public class BtnOnClick : MonoBehaviour
     public GameObject popup;
     public GameObject recommendPopup;
     public Button btn;
-    
+    private GameObject[] buttons;
     public bool isClicked = false;
 
-    
+
+    void Start(){
+        buttons = new GameObject[4];
+        buttons[0] = GameObject.Find("Type");
+        buttons[1] = GameObject.Find("Size");
+        buttons[2] = GameObject.Find("Channel");
+        buttons[3] = GameObject.Find("Quality");
+    }
 
     public void ButtonClick(){
         isClicked = true;
         Debug.Log(isClicked);
 
         if(isClicked){
+            if(this.transform.parent.name == "PopupUi"){
+                for(int i = 0; i < buttons.Length; i++){
+                    for(int j = 1; j < buttons[i].transform.childCount; j++){
+                        buttons[i].transform.GetChild(j).GetComponent<Image>().color = new Color(255/255f, 255/255f, 255/255f);
+                    }
+                }
+            }
             popup.SetActive(false);
             Debug.Log("window Close");
             isClicked = false;
@@ -48,6 +62,11 @@ public class BtnOnClick : MonoBehaviour
 
         if (isClicked)
         {
+            for(int i = 0; i < buttons.Length; i++){
+                for(int j = 1; j < buttons[i].transform.childCount; j++){
+                    buttons[i].transform.GetChild(j).GetComponent<Image>().color = new Color(255/255f, 255/255f, 255/255f);
+                }
+            }
             OptionSelect.type = "";
             OptionSelect.size = "";
             OptionSelect.channel = "";

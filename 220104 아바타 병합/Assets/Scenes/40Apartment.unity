@@ -11133,7 +11133,7 @@ PrefabInstance:
     - target: {fileID: 4813639414101524972, guid: 0f5a42c3c4299bf4697104960d1fa3ed, type: 3}
       propertyPath: m_VideoClip
       value: 
-      objectReference: {fileID: 32900000, guid: d5f16930b5c4cdf46b056d583fd083e3, type: 3}
+      objectReference: {fileID: 32900000, guid: 2b37c593231b2b64e8d8bfab65eea0ae, type: 3}
     - target: {fileID: 4813639414101524973, guid: 0f5a42c3c4299bf4697104960d1fa3ed, type: 3}
       propertyPath: m_LocalPosition.x
       value: 23.91
@@ -11149,11 +11149,11 @@ PrefabInstance:
     - target: {fileID: 4813639414269414157, guid: 0f5a42c3c4299bf4697104960d1fa3ed, type: 3}
       propertyPath: m_VideoClip
       value: 
-      objectReference: {fileID: 32900000, guid: a03d8498703d4a845b436fab6fd2a4ba, type: 3}
+      objectReference: {fileID: 32900000, guid: 9ff50e9c5a51d884985f07a1a431418e, type: 3}
     - target: {fileID: 4813639415783863525, guid: 0f5a42c3c4299bf4697104960d1fa3ed, type: 3}
       propertyPath: m_VideoClip
       value: 
-      objectReference: {fileID: 32900000, guid: 93aa9781b5ab5624698acf3e1b577da2, type: 3}
+      objectReference: {fileID: 32900000, guid: 7207b6770bceaeb42ab89ab5a6070c44, type: 3}
     - target: {fileID: 4813639415783863526, guid: 0f5a42c3c4299bf4697104960d1fa3ed, type: 3}
       propertyPath: m_LocalPosition.x
       value: 23.91
@@ -12059,7 +12059,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1830429505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16745,6 +16745,10 @@ PrefabInstance:
       propertyPath: recommendPopup
       value: 
       objectReference: {fileID: 396475168}
+    - target: {fileID: 3258917761628915168, guid: 9a9c1a3838b28b44b969d7208c374f3d, type: 3}
+      propertyPath: m_Name
+      value: paperingPopup
+      objectReference: {fileID: 0}
     - target: {fileID: 3258917762394606945, guid: 9a9c1a3838b28b44b969d7208c374f3d, type: 3}
       propertyPath: m_Pivot.x
       value: 0

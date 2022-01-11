@@ -62,6 +62,7 @@ public class TvChange : MonoBehaviour
             stand.SetActive(true);
             tv.transform.localPosition = positionStand;
             nowType = "Stand";
+            
             resize(nowSize);
         }
         else if (name == "Hanging")
@@ -103,12 +104,14 @@ public class TvChange : MonoBehaviour
         {
             //스탠드 40인치로 조절
             tv.transform.localPosition = positionStand;
+            
             if(nowSize=="70"){
                 tv.transform.localPosition += new Vector3(0.0f, 1.0f, 0.0f);
             }else if(nowSize=="80"){
-                Debug.Log("여기되나");
                 tv.transform.localPosition += new Vector3(0.0f, 2.0f, 0.0f);
             }
+            
+            
         }
         else
         {
@@ -116,7 +119,4 @@ public class TvChange : MonoBehaviour
             tv.transform.localPosition = positionWall;
         }
     }
-
-    
-
 }
