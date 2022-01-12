@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class OptionSelect : MonoBehaviour
 {
-    int cnt = 1;
+    public GameObject popup;
     public static string type = "";
     public static string size = "";
     public static string channel = "";
@@ -46,8 +46,10 @@ public class OptionSelect : MonoBehaviour
             tvchange.changeTV(type);
             channelChange.changeChannel(channel);
             qualityChange.changeQuality(quality);
+            popup.SetActive(true);
 
-        }else if (parent.Equals("Size"))
+        }
+        else if (parent.Equals("Size"))
         {
             size = name;
             tvchange.resize(size);
@@ -62,8 +64,7 @@ public class OptionSelect : MonoBehaviour
             quality = name;
             qualityChange.changeQuality(quality);
         }
-            
-        cnt = 3;
+
     }
     
 }

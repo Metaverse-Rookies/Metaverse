@@ -4220,10 +4220,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 706806549651611005}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.10887219, y: 0.8030789, z: 1.9387606}
+  m_Size: {x: 0.3088722, y: 0.8030789, z: 1.9387606}
   m_Center: {x: 0.017978618, y: -0.3916909, z: 0.9756203}
 --- !u!4 &706806549651611004
 Transform:
@@ -4449,7 +4449,7 @@ GameObject:
   m_Component:
   - component: {fileID: 706806550045150152}
   - component: {fileID: 706806550045150198}
-  - component: {fileID: 706806550045150199}
+  - component: {fileID: 706806550045150154}
   m_Layer: 0
   m_Name: 40Door
   m_TagString: Untagged
@@ -4457,6 +4457,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &706806550045150154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706806550045150153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62a8349b91d33f54e8720f7f0c6928bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  door1: {fileID: 706806549651611005}
 --- !u!95 &706806550045150198
 Animator:
   serializedVersion: 3
@@ -4476,19 +4489,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &706806550045150199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 706806550045150153}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62a8349b91d33f54e8720f7f0c6928bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  door1: {fileID: 706806549651611005}
 --- !u!1 &919132147646665398
 GameObject:
   m_ObjectHideFlags: 0

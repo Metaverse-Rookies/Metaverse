@@ -34,12 +34,12 @@ public class NewDoor : MonoBehaviour
         float distance = width * width + height * height;
         distance = Mathf.Sqrt(distance);
 
-        if (distance <= 15 && !doorOpen)
+        if (distance <= 10 && !doorOpen)
         {
             doorOpen = true;
             Doors("Open");
         }
-        else if (distance > 15 && doorOpen)
+        else if (distance > 10 && doorOpen)
         {
             doorOpen = false;
             Doors("Close"); // Close  Ķ   ͷ  Trigger       

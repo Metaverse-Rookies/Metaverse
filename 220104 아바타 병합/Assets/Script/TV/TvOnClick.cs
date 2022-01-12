@@ -10,7 +10,7 @@ public class TvOnClick : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        popup.SetActive(false);
+        // popup.SetActive(false);
         character_info = GameObject.Find("AvatarInfoUI");
     }
 
