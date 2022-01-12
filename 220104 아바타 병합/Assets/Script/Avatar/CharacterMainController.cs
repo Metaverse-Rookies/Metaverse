@@ -208,11 +208,26 @@ public class CharacterMainController : MonoBehaviour
         // SitandStand();
         Stand();
         
-        // 업데이트.       
+        // 업데이트.   
+        CheckStance();    
         CheckDistanceFromGround();
         UpdateAnimationParams();
         UpdateCurrentValues();
         TpCameraZoom();
+    }
+
+    private void CheckStance()
+    {
+        // 만약 현재 3인칭 카메라가 활성화되어있으면
+        //  만약 1인층 시점으러 전환하면
+        if (GameObject.Find("TP Camera") && stance == "sit")
+        {
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                // 각도를 90도로 틀어준다
+                GameObject.Find("FP Root").transform.eulerAngles = new Vector3(0, 90, 0);    
+            }   
+        }
     }
     #endregion
 
