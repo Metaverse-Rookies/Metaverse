@@ -47,7 +47,7 @@ public class LoginManager : MonoBehaviour
         avatarName.GetComponent<TextMesh>().characterSize = .5f;
         Debug.Log("아바타생성");
         SceneManager.LoadScene("MainScene");
-
+        GameObject.Find("PotalUI").GetComponent<Canvas>().enabled = false;
         /*if (password.text != pass)
         {
             notify.text = "입력하신 아이디와 패스워드가 일치하지 않습니다";

@@ -20,7 +20,8 @@ public class CreateInfoUI : MonoBehaviour
     }
 
     void OnMouseDown() {
-        if(!GameObject.FindGameObjectWithTag("Canvas")){
+        if(!GameObject.FindGameObjectWithTag("Canvas") && GameObject.Find("PotalUI").GetComponent<Canvas>().enabled == false)
+        {
             // popup.GetComponent<Canvas>().enabled = true;
             popup.SetActive(true);
             name = avatarName.GetComponent<TextMesh>().text;

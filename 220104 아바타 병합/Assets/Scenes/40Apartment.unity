@@ -11141,7 +11141,7 @@ PrefabInstance:
     - target: {fileID: 4813639414101524972, guid: 0f5a42c3c4299bf4697104960d1fa3ed, type: 3}
       propertyPath: m_VideoClip
       value: 
-      objectReference: {fileID: 32900000, guid: 2b37c593231b2b64e8d8bfab65eea0ae, type: 3}
+      objectReference: {fileID: 32900000, guid: 175ccb687f6d888428dd57d71f48249f, type: 3}
     - target: {fileID: 4813639414101524973, guid: 0f5a42c3c4299bf4697104960d1fa3ed, type: 3}
       propertyPath: m_LocalPosition.x
       value: 23.91
@@ -11157,11 +11157,11 @@ PrefabInstance:
     - target: {fileID: 4813639414269414157, guid: 0f5a42c3c4299bf4697104960d1fa3ed, type: 3}
       propertyPath: m_VideoClip
       value: 
-      objectReference: {fileID: 32900000, guid: 9ff50e9c5a51d884985f07a1a431418e, type: 3}
+      objectReference: {fileID: 32900000, guid: b4b10f5f29bd4a445ad76912745b900c, type: 3}
     - target: {fileID: 4813639415783863525, guid: 0f5a42c3c4299bf4697104960d1fa3ed, type: 3}
       propertyPath: m_VideoClip
       value: 
-      objectReference: {fileID: 32900000, guid: 7207b6770bceaeb42ab89ab5a6070c44, type: 3}
+      objectReference: {fileID: 32900000, guid: 56433414f8c749447b3d7ebf05fedfe1, type: 3}
     - target: {fileID: 4813639415783863526, guid: 0f5a42c3c4299bf4697104960d1fa3ed, type: 3}
       propertyPath: m_LocalPosition.x
       value: 23.91
@@ -13810,6 +13810,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bd7a082bf6bbb5489405606e0018ca8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  script: {fileID: 0}
+  potal_ui: {fileID: 0}
+  currentButton: 
 --- !u!1 &2095553203
 GameObject:
   m_ObjectHideFlags: 0
