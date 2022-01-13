@@ -31,11 +31,12 @@ public class ChangeScene : MonoBehaviour
         if (genderButton == "Male")
         {
             Debug.Log("남자");
+            DontDestroyOnLoad(GameObject.Find("Male"));
         }
         else if (genderButton == "Female")
         {
             Debug.Log("여자");
-            DontDestroyOnLoad(GameObject.Find("PlayerArmature"));
+            DontDestroyOnLoad(GameObject.Find("Female"));
         }
     }
     // Update is called once per frame

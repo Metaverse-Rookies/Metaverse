@@ -8,7 +8,7 @@ namespace StarterAssets
     {
         // prefab paths
         private const string ThirdPersonPrefabPath = "/ThirdPersonController/Prefabs/";
-        private const string PlayerArmaturePrefabName = "PlayerArmature";
+        private static string PlayerArmaturePrefabName = ChangeScene.genderButton;
 
 #if STARTER_ASSETS_PACKAGES_CHECKED
         /// <summary>
