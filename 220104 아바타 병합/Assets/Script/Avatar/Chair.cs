@@ -13,7 +13,7 @@ public class Chair : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        string avatarPrefabName = ChangeScene.genderButton;
+        string avatarPrefabName = ChangeScene.playerType;
         anim = GameObject.Find(avatarPrefabName).GetComponent<Animator>();
         // Debug.Log("anim"+anim.name);
         player = GameObject.FindGameObjectWithTag("Player");

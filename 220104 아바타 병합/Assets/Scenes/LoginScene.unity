@@ -1956,7 +1956,7 @@ GameObject:
   - component: {fileID: 264872901}
   - component: {fileID: 264872900}
   m_Layer: 8
-  m_Name: Male
+  m_Name: MalePlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9736,7 +9736,7 @@ GameObject:
   - component: {fileID: 1292867638}
   - component: {fileID: 680477865}
   m_Layer: 8
-  m_Name: Female
+  m_Name: FemalePlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

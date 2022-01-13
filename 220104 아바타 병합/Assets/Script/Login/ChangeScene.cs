@@ -10,6 +10,7 @@ public class ChangeScene : MonoBehaviour
 {
     public string nowButton;
     public static string genderButton;
+    public static string playerType;
     public string name;
     public TMP_InputField nameInputField;
     // Start is called before the first frame update
@@ -30,13 +31,15 @@ public class ChangeScene : MonoBehaviour
         genderButton = EventSystem.current.currentSelectedGameObject.name;
         if (genderButton == "Male")
         {
-            Debug.Log("남자");
-            DontDestroyOnLoad(GameObject.Find("Male"));
+            // Debug.Log("남자");
+            playerType = "MalePlayer";
+            DontDestroyOnLoad(GameObject.Find("MalePlayer"));
         }
         else if (genderButton == "Female")
         {
-            Debug.Log("여자");
-            DontDestroyOnLoad(GameObject.Find("Female"));
+            // Debug.Log("여자");
+            playerType = "FemalePlayer";
+            DontDestroyOnLoad(GameObject.Find("FemalePlayer"));
         }
     }
     // Update is called once per frame

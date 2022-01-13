@@ -23,7 +23,7 @@ public class NewDoor : MonoBehaviour
 
     void Update()
     {
-        avatar1 = GameObject.Find(ChangeScene.genderButton);
+        avatar1 = GameObject.Find(ChangeScene.playerType);
         Debug.Log(avatar1.name+"이다");
         Vector3 doorPos = door1.transform.position;
         Vector3 avatPos = avatar1.transform.position;

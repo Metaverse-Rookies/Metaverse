@@ -26,7 +26,7 @@ public class CreateInfoUI : MonoBehaviour
             popup.SetActive(true);
             name = avatarName.GetComponent<TextMesh>().text;
             id.GetComponent<Text>().text = name;
-            gender.GetComponent<Text>().text = ChangeScene.genderButton;
+            gender.GetComponent<Text>().text = ChangeScene.playerType;
         }
         /*
         if (!popup_flag)
@@ -35,7 +35,7 @@ public class CreateInfoUI : MonoBehaviour
             popup.GetComponent<Canvas>().enabled = true;
             name = avatarName.GetComponent<TextMesh>().text;
             id.GetComponent<Text>().text = name;
-            gender.GetComponent<Text>().text = ChangeScene.genderButton;
+            gender.GetComponent<Text>().text = ChangeScene.playerType;
         }
         */
     }
