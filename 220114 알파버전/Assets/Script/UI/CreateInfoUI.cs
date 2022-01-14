@@ -16,13 +16,14 @@ public class CreateInfoUI : MonoBehaviour
     void Start() {
         popup = GameObject.Find("AvatarInfoUI");
         // popup_flag = popup.GetComponent<Canvas>().enabled;
-        popup.SetActive(false);
+        popup.GetComponent<Canvas>().enabled = false;
+        // popup.SetActive(false);
     }
 
     void OnMouseDown() {
         if(!GameObject.FindGameObjectWithTag("Canvas") && GameObject.Find("PotalUI").GetComponent<Canvas>().enabled == false)
         {
-            // popup.GetComponent<Canvas>().enabled = true;
+            popup.GetComponent<Canvas>().enabled = true;
             popup.SetActive(true);
             name = avatarName.GetComponent<TextMesh>().text;
             id.GetComponent<Text>().text = name;
