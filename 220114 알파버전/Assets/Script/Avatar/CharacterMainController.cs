@@ -77,8 +77,8 @@ public class CharacterMainController : MonoBehaviour
     {
         [Range(1f, 30f), Tooltip("이동속도")]
         public float speed = 20f;
-        [Range(1f, 10f), Tooltip("점프 강도")]
-        public float jumpForce = 7f;
+        [Range(1f, 30f), Tooltip("점프 강도")]
+        public float jumpForce = 8.5f;
         [Tooltip("지면으로 체크할 레이어 설정")]
         public LayerMask groundLayerMask = -1;
         [Range(0.0f, 2.0f), Tooltip("점프 쿨타임")]
@@ -593,7 +593,7 @@ public class CharacterMainController : MonoBehaviour
         if (Input.GetKeyDown(Key.jump))
         {
             Debug.Log("JUMP");
-
+            
             // 하강 중 점프 시 속도가 합산되지 않도록 속도 초기화
             Com.rBody.velocity = Vector3.zero;
 
