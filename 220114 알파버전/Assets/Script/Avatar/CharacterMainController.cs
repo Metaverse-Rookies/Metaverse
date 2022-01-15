@@ -75,8 +75,8 @@ public class CharacterMainController : MonoBehaviour
     [Serializable]
     public class MovementOption
     {
-        [Range(1f, 15f), Tooltip("이동속도")]
-        public float speed = 7f;
+        [Range(1f, 30f), Tooltip("이동속도")]
+        public float speed = 20f;
         [Range(1f, 10f), Tooltip("점프 강도")]
         public float jumpForce = 7f;
         [Tooltip("지면으로 체크할 레이어 설정")]
@@ -96,8 +96,8 @@ public class CharacterMainController : MonoBehaviour
         [Tooltip("게임 시작 시 카메라")]
         public CameraType initialCamera;
 
-        [Range(1f, 10f), Tooltip("카메라 상하좌우 회전 속도")]
-        public float rotationSpeed = 2f;
+        [Range(1f, 20f), Tooltip("카메라 상하좌우 회전 속도")]
+        public float rotationSpeed = 12f;
 
         [Range(-90f, 0f), Tooltip("올려다보기 제한 각도")]
         public float lookUpDegree = -60f;
