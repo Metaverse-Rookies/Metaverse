@@ -1856,7 +1856,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &174229224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1972,6 +1972,9 @@ MonoBehaviour:
   nowChannel: Drama
   nowSize: 40
   nowType: 
+  videoPlayer: {fileID: 0}
+  commonUrl: https://ktds-rookies-metaverse.s3.ap-northeast-2.amazonaws.com/Video/
+  videoUrl: 
 --- !u!4 &179797046
 Transform:
   m_ObjectHideFlags: 0
@@ -6232,7 +6235,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &514377082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6240,7 +6243,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 514377081}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ba2cf5a4361e1047a0df97d2801c4ec, type: 3}
   m_Name: 
@@ -9774,6 +9777,10 @@ PrefabInstance:
       propertyPath: nowChannel
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4813639414016492472, guid: 0f5a42c3c4299bf4697104960d1fa3ed, type: 3}
+      propertyPath: videoPlayer
+      value: 
+      objectReference: {fileID: 679636318}
     - target: {fileID: 4813639414016492473, guid: 0f5a42c3c4299bf4697104960d1fa3ed, type: 3}
       propertyPath: m_Name
       value: Channels
@@ -20325,7 +20332,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1892855021
 MonoBehaviour:
   m_ObjectHideFlags: 0

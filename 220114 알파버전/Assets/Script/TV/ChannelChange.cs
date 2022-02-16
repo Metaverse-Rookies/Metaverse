@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class ChannelChange : MonoBehaviour
 {
@@ -18,6 +19,15 @@ public class ChannelChange : MonoBehaviour
     public string nowChannel = "";
     public string nowSize = "40";
     public string nowType = "";
+
+    public VideoPlayer videoPlayer;
+
+    private MeshRenderer MeshRendererMode;
+    
+    public string commonUrl = "https://ktds-rookies-metaverse.s3.ap-northeast-2.amazonaws.com/Video/";
+
+    public string videoUrl;
+
 
     TvChange tvchange;
 
@@ -46,11 +56,6 @@ public class ChannelChange : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void changeChannel(string name)
     {
         nowType = tvchange.nowType;
@@ -59,7 +64,9 @@ public class ChannelChange : MonoBehaviour
         // Debug.Log("현재"+nowType);
         for(int i=0;i<3;i++){
             GameObject temp = transform.GetChild(i).gameObject;
-            if(name==temp.name){
+            if(name==temp.name)
+            {
+                videoPlay(temp);
                 temp.SetActive(true);
                 nowChannel = temp.name;
 
@@ -143,5 +150,15 @@ public class ChannelChange : MonoBehaviour
 
         }
         
+    }
+
+    public void videoPlay(GameObject channel){
+        videoUrl = commonUrl + channel.name + ".mp4";
+        videoPlayer.url = videoUrl;
+        MeshRendererMode = channel.GetComponent<MeshRenderer>();
+        videoPlayer.targetMaterialRenderer = MeshRendererMode;
+        videoPlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
+        videoPlayer.EnableAudioTrack (0, true);
+        videoPlayer.Prepare ();
     }
 }
