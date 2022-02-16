@@ -57,6 +57,7 @@ namespace FancyScrollView.Example09
                     new ItemData(
                         "FAIL",
                         "다시 돌아가세욧",
+                        // "https://youtu.be/lTxn2BuqyzU"
                         "http://m.hotdeal.koreadaily.com/assets/images/common/no-search-data.png"
                     )
                 };
