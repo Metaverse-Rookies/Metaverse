@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert</title>
+    <link rel="stylesheet" href="/bootstrap.min.css" type="text/css">
+</head>
+<body>
+<nav th:replace="fragments/common">
+</nav>
+<main role="main" class="container">
+    <div style="padding: 10px; text-align: center";><h1>상품 상세</h1></div>
+<!--    <form role="form" th:object=${product} th:action="@{../update}" method="post" enctype="multipart/form-data">-->
+    <form role="form" th:object="${product}" method="post">
+        <fieldset>
+            <legend>상품 상세</legend>
+            <div class="form-group">
+                <label class="col-form-label mt-4" for="inputDefault">상품명</label>
+                <input type="text" class="form-control" name="productName" th:value="${product.productName}" required>
+            </div>
+            <div class="form-group">
+                <label class="col-form-label mt-4" for="inputDefault">상품 코드</label>
+                <input type="text" class="form-control" name="modelCode" th:value="${product.modelCode}" required>
+            </div>
+            <fieldset class="form-group">
+                <label class="col-form-label mt-4">타입</label>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="tvType" id="Stand" value="Stand"
+                               th:attr="checked=${product.tvType.toString() == 'Stand' ? 'true' : 'false'}" autocomplete="off">
+                        스탠드
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="tvType" id="Hanging" value="Hanging"
+                               th:attr="checked=${product.tvType.toString() == 'Hanging' ? 'true' : 'false'}" autocomplete="off">
+                        벽걸이
+                    </label>
+                </div>
+            </fieldset>
+            <div class="form-group">
+                <label class="col-form-label mt-4" for="inputDefault">크기</label>
+                <input type="text" class="form-control" name="size" th:value="${product.size}" required>
+            </div>
+            <fieldset class="form-group">
+                <label class="col-form-label mt-4">화질</label>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="quality" id="FHD" value="FHD"
+                               th:attr="checked=${product.quality.toString() == 'FHD' ? 'true' : 'false'}" autocomplete="off">
+                        FHD
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="quality" id="QHD" value="QHD"
+                               th:attr="checked=${product.quality.toString() == 'QHD' ? 'true' : 'false'}" autocomplete="off">
+                        QHD
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="quality" id="OLED" value="OLED"
+                               th:attr="checked=${product.quality.toString() == 'OLED' ? 'true' : 'false'}" autocomplete="off">
+                        OLED
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="quality" id="QLED" value="QLED"
+                               th:attr="checked=${product.quality.toString() == 'QLED' ? 'true' : 'false'}" autocomplete="off">
+                        QLED
+                    </label>
+                </div>
+            </fieldset>
+            <div class="form-group">
+                <label class="col-form-label mt-4" for="inputDefault">제조사</label>
+                <input type="text" class="form-control" name="company" th:value="${product.company}" required>
+            </div>
+            <div class="form-group">
+                <label class="col-form-label mt-4" for="inputDefault">이미지</label>
+                <input type="text" class="form-control" name="image" th:value="${product.image}" required>
+            </div>
+            <div class="form-group">
+                <label class="col-form-label mt-4" for="inputDefault">가격</label>
+                <input type="text" class="form-control" name="price" th:value="${product.price}" required>
+            </div>
+            <div class="form-group">
+                <label class="col-form-label mt-4" for="inputDefault">url</label>
+                <input type="text" class="form-control" name="link" th:value="${product.link}" required>
+            </div>
+        </fieldset>
+        <div style ="text-align: center; margin-top: 5px;">
+            <input type="submit" class="btn btn-info" th:value="수정" th:formaction="@{/product/update/{no}(no=${product.productNum})}"></input>
+            <input type="submit" class="btn btn-secondary" th:value="삭제" th:formaction="@{/product/delete/{no}(no=${product.productNum})}"></input>
+            <a href="/product/select" type="reset" class="btn btn-primary">취소</a>
+        </div>
+    </form>
+</main>
+</body>
+</html>

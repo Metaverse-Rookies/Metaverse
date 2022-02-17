@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+    <link rel="stylesheet" href="/bootstrap.min.css" type="text/css">
+</head>
+<body>
+<nav th:replace="fragments/common">
+</nav>
+<main role="main" class="container">
+    <div style="padding: 10px; text-align: center";><h1>상품 조회</h1></div>
+    <div style ="text-align: right; margin-top: 5px 0 5px 0;">
+        <a class="btn btn-primary" href="/product/insert">추가</a>
+    </div>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col" style="text-align: center">No</th>
+            <th scope="col" style="text-align: center">Product</th>
+            <th scope="col" style="text-align: center">Type</th>
+            <th scope="col" style="text-align: center">Size</th>
+            <th scope="col" style="text-align: center">Quality</th>
+            <th scope="col" style="text-align: center">Manufacturer</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr style="text-align: center"
+                th:each="product : ${productList}" th:onclick="'window.location.href = \'' + @{/product/select/{no}(no=${product.productNum})} + '\''">
+            <td th:text="${product.productNum}"></td>
+            <td th:text="${product.productName}"></td>
+            <td th:text="${product.tvType}"></td>
+
+            <td th:text="${product.size}"></td>
+            <td th:text="${product.quality}"></td>
+            <td th:text="${product.company}"></td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>

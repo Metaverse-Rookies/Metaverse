@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert</title>
+    <link rel="stylesheet" href="/bootstrap.min.css" type="text/css">
+</head>
+<body>
+<nav th:replace="fragments/common">
+</nav>
+<main role="main" class="container">
+    <div style="padding: 10px; text-align: center";><h1>영상 상세</h1></div>
+<!--    <form role="form" th:object=${media} th:action="@{../update}" method="post" enctype="multipart/form-data">-->
+    <form role="form" th:object="${media}" method="post">
+        <fieldset>
+            <legend>영상 상세</legend>
+            <div class="form-group">
+                <label class="col-form-label mt-4" for="inputDefault">장르</label>
+                <input type="text" class="form-control" name="genre" th:value="${media.genre}" required>
+            </div>
+            <div class="form-group">
+                <label class="col-form-label mt-4" for="inputDefault">url</label>
+                <input type="text" class="form-control" name="url" th:value="${media.url}" required>
+            </div>
+        </fieldset>
+        <div style ="text-align: center; margin-top: 5px;">
+            <input type="submit" class="btn btn-info" th:value="수정" th:formaction="@{/media/update/{no}(no=${media.mediaNum})}"></input>
+            <input type="submit" class="btn btn-secondary" th:value="삭제" th:formaction="@{/media/delete/{no}(no=${media.mediaNum})}"></input>
+            <a href="/media/select" type="reset" class="btn btn-primary">취소</a>
+        </div>
+    </form>
+</main>
+</body>
+</html>

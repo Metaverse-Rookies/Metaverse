@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert</title>
+    <link rel="stylesheet" href="/bootstrap.min.css" type="text/css">
+</head>
+<body>
+    <nav th:replace="fragments/common">
+    </nav>
+    <main role="main" class="container">
+        <div style="padding: 10px; text-align: center";><h1>상품 추가</h1></div>
+        <form role="form" th:object=${product} th:action="@{insert}" method="post" enctype="multipart/form-data">
+            <fieldset>
+                <legend>상품 상세</legend>
+                <div class="form-group">
+                    <label class="col-form-label mt-4" for="inputDefault">상품명</label>
+                    <input type="text" class="form-control" name="productName" required>
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label mt-4" for="inputDefault">상품 코드</label>
+                    <input type="text" class="form-control" name="modelCode" required>
+                </div>
+                <fieldset class="form-group">
+                    <label class="col-form-label mt-4">타입</label>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="tvType" id="Stand" value="Stand" checked="">
+                            스탠드
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="tvType" id="Hanging" value="Hanging">
+                            벽걸이
+                        </label>
+                    </div>
+                </fieldset>
+                <div class="form-group">
+                    <label class="col-form-label mt-4" for="inputDefault">크기</label>
+                    <input type="text" class="form-control" name="size" required>
+                </div>
+                <fieldset class="form-group">
+                    <label class="col-form-label mt-4">화질</label>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="quality" id="FHD" value="FHD" checked="">
+                            FHD
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="quality" id="QHD" value="QHD">
+                            QHD
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="quality" id="OLED" value="OLED">
+                            OLED
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="quality" id="QLED" value="QLED">
+                            QLED
+                        </label>
+                    </div>
+                </fieldset>
+                <div class="form-group">
+                    <label class="col-form-label mt-4" for="inputDefault">제조사</label>
+                    <input type="text" class="form-control" name="company" required>
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label mt-4" for="inputDefault">이미지</label>
+                    <input type="text" class="form-control" name="image" required>
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label mt-4" for="inputDefault">가격</label>
+                    <input type="text" class="form-control" name="price" required>
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label mt-4" for="inputDefault">url</label>
+                    <input type="text" class="form-control" name="link" required>
+                </div>
+            </fieldset>
+            <div style ="text-align: center; margin-top: 5px;">
+                <input type="submit" class="btn btn-info" th:value="추가"></input>
+                <a href="/product/select" type="reset" class="btn btn-secondary">취소</a>
+            </div>
+        </form>
+    </main>
+</body>
+</html>
